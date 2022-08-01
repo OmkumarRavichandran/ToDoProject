@@ -20,8 +20,8 @@
 			<tbody>
 				<c:forEach var="com" items="${allcomment}">
 					<tr>
-						<td>${com.taskid}</td>
-						<td>${com.commentid}</td>
+						<td>${com.taskId}</td>
+						<td>${com.commentId}</td>
 						<td>${com.comments}</td>
 						</tr>
 				</c:forEach>

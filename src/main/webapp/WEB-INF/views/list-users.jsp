@@ -21,10 +21,10 @@
 			<tbody>
 				<c:forEach var="use" items="${alluser}">
 					<tr>
-						<td>${use.userid}</td>
+						<td>${use.userId}</td>
 						<td>${use.name}</td>
 						<td>${use.email}</td>
-						<td>${use.mobileno}</td> 
+						<td>${use.mobileNo}</td> 
 						</tr>
 				</c:forEach>
 			</tbody>

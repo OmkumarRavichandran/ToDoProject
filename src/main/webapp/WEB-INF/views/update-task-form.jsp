@@ -13,15 +13,15 @@
 		<div id="form">
 			<form:form action="update" method="post" modelAttribute="updatetask">
 				<div>
-					<label for="taskid">Task ID</label>
+					<label for="taskId">Task ID</label>
 					<div>
-						<form:input path="taskid" />
+						<form:input path="taskId" />
 					</div>
 				</div>
 				<div>
-					<label for="tasktitle">Task title</label>
+					<label for="taskTitle">Task title</label>
 					<div>
-						<form:input path="tasktitle" />
+						<form:input path="taskTitle" />
 					</div>
 				</div>
 				<div>
@@ -31,33 +31,33 @@
 					</div>
 				</div>
 				<div>
-					<label for="date_created">dateCreated</label>
+					<label for="dateCreated">dateCreated</label>
 					<div>
-						<form:input path="date_created" />
+						<form:input path="dateCreated" />
 					</div>
 				</div>
 				<div>
-					<label for="datedue">Date Due</label>
+					<label for="dateDue">Date Due</label>
 					<div>
-						<form:input path="datedue" />
+						<form:input path="dateDue" />
 					</div>
 				</div>
 				<div>
-					<label for="datemodified">Date Modified</label>
+					<label for="dateModified">Date Modified</label>
 					<div>
-						<form:input path="datemodified" />
+						<form:input path="dateModified" />
 					</div>
 				</div>
 				<div>
-					<label for="datecompleted">Date Completed</label>
+					<label for="dateCompleted">Date Completed</label>
 					<div>
-						<form:input path="datecompleted" />
+						<form:input path="dateCompleted" />
 					</div>
 				</div>
 				<div>
-					<label for="userid">User id</label>
+					<label for="userId">User id</label>
 					<div>
-						<form:input path="userid" />
+						<form:input path="userId" />
 					</div>
 				</div>
 				</div>

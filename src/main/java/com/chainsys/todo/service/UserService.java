@@ -11,16 +11,16 @@ import com.chainsys.todo.repository.UserRepository;
 @Service
 public class UserService {
 	@Autowired
-	private UserRepository repo;
+	private UserRepository userrepo;
 
 	public User save(User us) {
-		return repo.save(us);
+		return userrepo.save(us);
 	}
 	public User getById(int id) {
-		return repo.findById(id);
+		return userrepo.findById(id);
 	}
 	public List<User> getAllUsers(){
-		List<User> listus =repo.findAll();
+		List<User> listus =userrepo.findAll();
 		return listus;
 	}
 }

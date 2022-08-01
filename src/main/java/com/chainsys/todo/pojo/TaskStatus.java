@@ -8,27 +8,29 @@ import javax.persistence.Table;
 @Entity
 @Table(name="TASKSTATUS")
 public class TaskStatus {
+	
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	public int getTaskId() {
+		return taskId;
+	}
+	public void setTaskId(int taskId) {
+		this.taskId = taskId;
+	}
 	@Id
 	@Column(name="USERID")
-	private int userid;
+	private int userId;
 	@Column(name="TASKID")
-	private int taskid;
+	private int taskId;
 	@Column(name="COMPLETEDTASK")
 	private String completedTask;
 	@Column(name="ADDEDTASK")
 	private String addedTask;
-	public int getUserid() {
-		return userid;
-	}
-	public void setUserid(int userid) {
-		this.userid = userid;
-	}
-	public int getTaskid() {
-		return taskid;
-	}
-	public void setTaskid(int taskid) {
-		this.taskid = taskid;
-	}
+	
 	public String getCompletedTask() {
 		return completedTask;
 	}
@@ -43,7 +45,7 @@ public class TaskStatus {
 	}
 	@Override
 	public String toString() {
-		return String.format("%d,%d,%s,%s",userid,taskid,completedTask,addedTask);
+		return String.format("%d,%d,%s,%s",userId,taskId,completedTask,addedTask);
 	}
 	
 

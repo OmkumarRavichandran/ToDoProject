@@ -10,59 +10,81 @@ import javax.persistence.Table;
 @Entity
 @Table(name="task")
 public class Task {
-	
-	private int userid;
+	@Column(name="USERID")
+	private int userId;
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 	@Id
-	@Column(name = "taskid")
-	private int taskid;
+	@Column(name = "TASKID")
+	private int taskId;
+	@Column(name = "TASKTITLE")
+	private String taskTitle;
 	
-	@Column(name = "tasktitle")
-	private String tasktitle;
-	
-	@Column(name = "description")
+	@Column(name = "DESCRIPTION")
 	private String description;
 	
-	public Date getDate_created() {
-		return date_created;
-	}
-
-	public void setDate_created(Date date_created) {
-		this.date_created = date_created;
-	}
-	@Column(name = "date_created")
-	private Date date_created;
+	@Column(name = "DATECREATED")
+	private Date dateCreated;
 	
-	@Column(name = "datedue")
-	private Date datedue;
+	@Column(name = "DATEDUE")
+	private Date dateDue;
 	
-	@Column(name = "datemodified")
-	private Date datemodified;
+	@Column(name = "DATEMODIFIED")
+	private Date dateModified;
 	
-	@Column(name = "datecompleted")
-	private Date datecompleted;
-		
-	public int getUserid() {
-		return userid;
+	@Column(name = "DATECOMPLETED")
+	private Date dateCompleted;
+	
+	public int getTaskId() {
+		return taskId;
 	}
 
-	public void setUserid(int userid) {
-		this.userid = userid;
+	public void setTaskId(int taskId) {
+		this.taskId = taskId;
 	}
 
-	public int getTaskid() {
-		return taskid;
+	public String getTaskTitle() {
+		return taskTitle;
 	}
 
-	public void setTaskid(int taskid) {
-		this.taskid = taskid;
+	public void setTaskTitle(String taskTitle) {
+		this.taskTitle = taskTitle;
 	}
 
-	public String getTasktitle() {
-		return tasktitle;
+	public Date getDateCreated() {
+		return dateCreated;
 	}
 
-	public void setTasktitle(String tasktitle) {
-		this.tasktitle = tasktitle;
+	public void setDateCreated(Date dateCreated) {
+		this.dateCreated = dateCreated;
+	}
+
+	public Date getDateDue() {
+		return dateDue;
+	}
+
+	public void setDateDue(Date dateDue) {
+		this.dateDue = dateDue;
+	}
+
+	public Date getDateModified() {
+		return dateModified;
+	}
+
+	public void setDateModified(Date dateModified) {
+		this.dateModified = dateModified;
+	}
+
+	public Date getDateCompleted() {
+		return dateCompleted;
+	}
+
+	public void setDateCompleted(Date dateCompleted) {
+		this.dateCompleted = dateCompleted;
 	}
 
 	public String getDescription() {
@@ -73,31 +95,8 @@ public class Task {
 		this.description = description;
 	}
 
-	public Date getDatedue() {
-		return datedue;
-	}
-
-	public void setDatedue(Date datedue) {
-		this.datedue = datedue;
-	}
-
-	public Date getDatemodified() {
-		return datemodified;
-	}
-
-	public void setDatemodified(Date datemodified) {
-		this.datemodified = datemodified;
-	}
-
-	public Date getDatecompleted() {
-		return datecompleted;
-	}
-
-	public void setDatecompleted(Date datecompleted) {
-		this.datecompleted = datecompleted;
-	}
 	@Override
 	public String toString() {
-		return String.format("%d,%d,%s,%s,%s,%s,%s,%s",userid,taskid,tasktitle,description,date_created,datedue,datemodified,datecompleted);
+		return String.format("%d,%d,%s,%s,%s,%s,%s,%s",userId,taskId,taskTitle,description,dateCreated,dateDue,dateModified,dateCompleted);
 	}
 }

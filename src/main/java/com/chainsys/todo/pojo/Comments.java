@@ -9,26 +9,27 @@ import javax.persistence.Table;
 @Entity
 @Table(name="comments")
 public class Comments {
-	
-	private int taskid;
+	@Column(name="taskid")
+	private int taskId;
 	@Id
 	@Column(name = "commentid")
-	private int commentid;
+	private int commentId;
+	public int getTaskId() {
+		return taskId;
+	}
+	public void setTaskId(int taskId) {
+		this.taskId = taskId;
+	}
+	public int getCommentId() {
+		return commentId;
+	}
+	public void setCommentId(int commentId) {
+		this.commentId = commentId;
+	}
 	@Column(name = "comments")
 	private String comments;
 
-	public int getTaskid() {
-		return taskid;
-	}
-	public void setTaskid(int taskid) {
-		this.taskid = taskid;
-	}
-	public int getCommentid() {
-		return commentid;
-	}
-	public void setCommentid(int commentid) {
-		this.commentid = commentid;
-	}
+	
 	public String getComments() {
 		return comments;
 	}
@@ -37,6 +38,6 @@ public class Comments {
 	}
 	@Override
 	public String toString() {
-		return String.format("%d,%d,%s",taskid,commentid,comments);
+		return String.format("%d,%d,%s",taskId,commentId,comments);
 	}
 }

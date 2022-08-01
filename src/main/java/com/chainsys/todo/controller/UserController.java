@@ -19,10 +19,10 @@ import com.chainsys.todo.service.UserService;
 public class UserController {
 
 	@Autowired
-	UserService uservice;
+	UserService userservice;
 	@GetMapping("/list")
 	public String getAllUsers(Model model) {
-		List<User> uselist = uservice.getAllUsers();
+		List<User> uselist = userservice.getAllUsers();
 		model.addAttribute("alluser",uselist);
 		return "list-users";
 	}
@@ -34,12 +34,12 @@ public class UserController {
 	}
 	@PostMapping("/add")
 	public String addUser(@ModelAttribute("adduser")User user) {
-		uservice.save(user);
+		userservice.save(user);
 		return "redirect:/User1/list";
 	}
 	@GetMapping("/getuserid")
 	public String getUserById(@RequestParam("id") int id,Model model) {
-		User theuser = uservice.getById(id);
+		User theuser = userservice.getById(id);
 		model.addAttribute("getuser",theuser);
 		return "find-user-id";
 	}

@@ -18,11 +18,11 @@ import com.chainsys.todo.service.CommentService;
 @RequestMapping("/comment")
 public class CommentsController {
 	@Autowired
-	CommentService cservice;
+	CommentService commentservice;
 
 	@GetMapping("/list")
 	public String getAllUsers(Model model) {
-		List<Comments> commentlist = cservice.getAllComments();
+		List<Comments> commentlist = commentservice.getAllComments();
 		model.addAttribute("allcomment", commentlist);
 		return "list-comment";
 	}
@@ -34,12 +34,12 @@ public class CommentsController {
 	}
 	@PostMapping("/add")
 	public String save(@ModelAttribute("addcomment")Comments com) {
-		cservice.save(com);
+		commentservice.save(com);
 		return "redirect:/comment/list";
 	}
 	@GetMapping("/deletecomment")
 	public String deleteTask(@RequestParam("id")int id) {
-		cservice.deleteById(id);
+		commentservice.deleteById(id);
 		return "redirect:/comment/list";
 	}
 }

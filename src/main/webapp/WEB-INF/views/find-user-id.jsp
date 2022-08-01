@@ -13,9 +13,9 @@
 		<div id="form">
 			<form:form action="add" method="get" modelAttribute="getuser">
 				<div>
-					<label for="userid">User id</label>
+					<label for="userId">User id</label>
 					<div>
-						<form:input path="userid" />
+						<form:input path="userId" />
 					</div>
 				</div>
 				<div>
@@ -31,9 +31,9 @@
 					</div>
 				</div>
 				<div>
-					<label for="mobileno">Mobile Number</label>
+					<label for="mobileNo">Mobile Number</label>
 					<div>
-						<form:input path="mobileno" />
+						<form:input path="mobileNo" />
 					</div>
 				</div>
 		</div>

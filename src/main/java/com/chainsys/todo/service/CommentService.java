@@ -11,19 +11,19 @@ import com.chainsys.todo.repository.CommentRepository;
 @Service
 public class CommentService {
 	@Autowired
-	private CommentRepository repo;
+	private CommentRepository commentrepo;
 
 	public Comments save(Comments cs) {
-		return repo.save(cs);
+		return commentrepo.save(cs);
 	}
 	public void deleteById(int id) {
-		repo.deleteById(id);
+		commentrepo.deleteById(id);
 	}
 	public List<Comments> getAllComments(){
-		List<Comments> listco =repo.findAll();
+		List<Comments> listco =commentrepo.findAll();
 		return listco;
 	}
 	public Comments findById(int id) {
-		return repo.findById(id);
+		return commentrepo.findById(id);
 	}
 }

@@ -10,7 +10,19 @@ import javax.persistence.Table;
 public class User {
 	@Id
 	@Column(name = "userid")
-	private int userid;
+	private int userId;
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	public long getMobileNo() {
+		return mobileNo;
+	}
+	public void setMobileNo(long mobileNo) {
+		this.mobileNo = mobileNo;
+	}
 	@Column(name="name")
 	private String name;
 	@Column(name="email")
@@ -18,19 +30,8 @@ public class User {
 	@Column(name="password")
 	private String password;
 	@Column(name="mobileno")
-	private long mobileno;
-	public long getMobileno() {
-		return mobileno;
-	}
-	public void setMobileno(long mobileno) {
-		this.mobileno = mobileno;
-	}
-	public int getUserid() {
-		return userid;
-	}
-	public void setUserid(int userid) {
-		this.userid = userid;
-	}
+	private long mobileNo;
+	
 	public String getName() {
 		return name;
 	}
@@ -51,7 +52,7 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return String.format("%d,%s,%s,%s,%s",userid,name,email,password,mobileno);
+		return String.format("%d,%s,%s,%s,%s",userId,name,email,password,mobileNo);
 	}
 	
 	

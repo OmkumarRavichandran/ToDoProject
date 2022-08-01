@@ -13,15 +13,15 @@
 		<div id="form">
 			<form:form action="add" method="post" modelAttribute="addcomment">
 				<div>
-					<label for="taskid">Task id</label>
+					<label for="taskId">Task id</label>
 					<div>
-						<form:input path="taskid" />
+						<form:input path="taskId" />
 					</div>
 				</div>
 				<div>
-					<label for="commentid">Comment ID</label>
+					<label for="commentId">Comment ID</label>
 					<div>
-						<form:input path="commentid" />
+						<form:input path="commentId" />
 					</div>
 				</div>
 				<div>

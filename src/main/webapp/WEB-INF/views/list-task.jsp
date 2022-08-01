@@ -25,14 +25,14 @@
 			<tbody>
 				<c:forEach var="task" items="${alltask}">
 					<tr>
-						<td>${task.taskid}</td>
-						<td>${task.tasktitle}</td>
+						<td>${task.taskId}</td>
+						<td>${task.taskTitle}</td>
 						<td>${task.description}</td>
-						<td>${task.date_created}</td> 
-						<td>${task.datedue}</td> 
-						<td>${task.datemodified}</td> 
-						<td>${task.datecompleted}</td> 
-						<td>${task.userid}</td> 
+						<td>${task.dateCreated}</td> 
+						<td>${task.dateDue}</td> 
+						<td>${task.dateModified}</td> 
+						<td>${task.dateCompleted}</td> 
+						<td>${task.userId}</td> 
 						</tr>
 				</c:forEach>
 			</tbody>
