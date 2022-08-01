@@ -9,7 +9,7 @@ import com.chainsys.todo.pojo.Task;
 
 public interface CommentRepository extends CrudRepository<Comments, Integer>{
 	
-	Task findByIdComment(int id);
-	Task saveComment (Task tr);
-	List<Task> findAllComment();
+	Comments findById(int id);
+	Comments save(Comments tr);
+	List<Comments> findAll();
 }

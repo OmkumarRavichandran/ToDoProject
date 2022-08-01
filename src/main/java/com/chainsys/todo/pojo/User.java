@@ -1,18 +1,30 @@
 package com.chainsys.todo.pojo;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="user1")
+@Table(name="USER1")
 public class User {
 	@Id
+	@Column(name = "userid")
 	private int userid;
+	@Column(name="name")
 	private String name;
+	@Column(name="email")
 	private String email;
+	@Column(name="password")
 	private String password;
-
+	@Column(name="mobileno")
+	private long mobileno;
+	public long getMobileno() {
+		return mobileno;
+	}
+	public void setMobileno(long mobileno) {
+		this.mobileno = mobileno;
+	}
 	public int getUserid() {
 		return userid;
 	}
@@ -39,7 +51,7 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return String.format("%d,%s,%s,%s",userid,name,email,password);
+		return String.format("%d,%s,%s,%s,%s",userid,name,email,password,mobileno);
 	}
 	
 	

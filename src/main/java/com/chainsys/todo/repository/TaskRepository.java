@@ -8,9 +8,9 @@ import com.chainsys.todo.pojo.Task;
 
 public interface TaskRepository extends CrudRepository<Task, Integer>{
 	
-	Task findbyId(int id);
+	Task findById(int id);
 	Task save (Task tr);
-	Task deleteById_Task(int tr_id);
-	List<Task> findAllTask();
+	Task deleteById(int tr_id);
+	List<Task> findAll();
 
 }

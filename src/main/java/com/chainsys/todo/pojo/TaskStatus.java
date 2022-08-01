@@ -1,17 +1,21 @@
 package com.chainsys.todo.pojo;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 @Entity
-@Table(name="taskstatus")
+@Table(name="TASKSTATUS")
 public class TaskStatus {
 	@Id
+	@Column(name="USERID")
 	private int userid;
-	@Id
+	@Column(name="TASKID")
 	private int taskid;
+	@Column(name="COMPLETEDTASK")
 	private String completedTask;
+	@Column(name="ADDEDTASK")
 	private String addedTask;
 	public int getUserid() {
 		return userid;

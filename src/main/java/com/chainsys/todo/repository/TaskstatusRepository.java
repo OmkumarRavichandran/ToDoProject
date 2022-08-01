@@ -7,6 +7,6 @@ import com.chainsys.todo.pojo.TaskStatus;
 
 public interface TaskstatusRepository extends CrudRepository<TaskStatus, Integer>{
 
-	TaskStatus addedTask(Task tr);
-	TaskStatus completedTask(Task tr);
+	TaskStatus save(Task tr);
+	TaskStatus findById(int id);
 }
