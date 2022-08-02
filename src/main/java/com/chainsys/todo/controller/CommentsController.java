@@ -11,18 +11,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.chainsys.todo.pojo.Comments;
+import com.chainsys.todo.model.Comments;
 import com.chainsys.todo.service.CommentService;
 
 @Controller
 @RequestMapping("/comment")
 public class CommentsController {
 	@Autowired
-	CommentService commentservice;
+	CommentService commentService;
 
 	@GetMapping("/list")
 	public String getAllUsers(Model model) {
-		List<Comments> commentlist = commentservice.getAllComments();
+		List<Comments> commentlist = commentService.getAllComments();
 		model.addAttribute("allcomment", commentlist);
 		return "list-comment";
 	}
@@ -34,12 +34,12 @@ public class CommentsController {
 	}
 	@PostMapping("/add")
 	public String save(@ModelAttribute("addcomment")Comments com) {
-		commentservice.save(com);
+		commentService.save(com);
 		return "redirect:/comment/list";
 	}
 	@GetMapping("/deletecomment")
 	public String deleteTask(@RequestParam("id")int id) {
-		commentservice.deleteById(id);
+		commentService.deleteById(id);
 		return "redirect:/comment/list";
 	}
 }

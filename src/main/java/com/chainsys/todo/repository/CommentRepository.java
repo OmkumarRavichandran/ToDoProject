@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.chainsys.todo.pojo.Comments;
-import com.chainsys.todo.pojo.Task;
+import com.chainsys.todo.model.Comments;
+import com.chainsys.todo.model.Task;
 
 public interface CommentRepository extends CrudRepository<Comments, Integer>{
 	

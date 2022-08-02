@@ -13,21 +13,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.chainsys.todo.pojo.Comments;
-import com.chainsys.todo.pojo.Task;
-import com.chainsys.todo.pojo.TaskCommentDTO;
-import com.chainsys.todo.pojo.User;
+import com.chainsys.todo.model.Comments;
+import com.chainsys.todo.model.Task;
+import com.chainsys.todo.model.TaskCommentDTO;
+import com.chainsys.todo.model.User;
+import com.chainsys.todo.service.CommentService;
 import com.chainsys.todo.service.TaskService;
 
 @Controller
 @RequestMapping("/task")
 public class TaskController {
 	@Autowired
-	TaskService taskservice;
+	TaskService taskService;
 
 	@GetMapping("/list")
 	public String getAllUsers(Model model) {
-		List<Task> tasklist = taskservice.getallTask();
+		List<Task> tasklist = taskService.getallTask();
 		model.addAttribute("alltask",tasklist);
 		return "list-task";
 	}
@@ -39,35 +40,35 @@ public class TaskController {
 	}
 	@PostMapping("/add")
 	public String save(@ModelAttribute("addtask")Task task) {
-		taskservice.save(task);
+		taskService.save(task);
 		return "redirect:/task/list";
 	}
 	@GetMapping("/getuserid")
 	public String getUserById(@RequestParam("taskid") int id,Model model) {
-		Task theuser = taskservice.findById(id);
+		Task theuser = taskService.findById(id);
 		model.addAttribute("gettask",theuser);
 		return "find-task-id";
 	}
 	@GetMapping("/deletetask")
 	public String deleteTask(@RequestParam("userid")int id) {
-		taskservice.deleteById(id);
+		taskService.deleteById(id);
 		return "redirect:/task/list";
 	}
 	@GetMapping("/updatetask")
 	public String showUpdateForm(Model model,@RequestParam("taskid")int id) {
-		Task theDoc = taskservice.findById(id);
+		Task theDoc = taskService.findById(id);
 		model.addAttribute("updatetask",theDoc);
 		return "update-task-form";
 	}
 	@PostMapping("/update")
 	public String updateTask(@ModelAttribute("updatetask")Task theDoc) {
-		taskservice.save(theDoc);
+		taskService.save(theDoc);
 		return "redirect:/task/list";
 	}
 	@GetMapping("/gettaskcomment")
 	public String getComments(@RequestParam("id") int id,Model model) {
 		System.out.println("id"+id);
-		TaskCommentDTO dto = taskservice.getTaskComment(id);
+		TaskCommentDTO dto = taskService.getTaskComment(id);
 		model.addAttribute("gettask",dto.getTask());
 		model.addAttribute("commentlist",dto.getCommentlist());
 		return "list-task-comment";
@@ -93,7 +94,7 @@ public class TaskController {
 			comment.setComments("Excellent");
 			dto.addComment(comment);
 		}
-		taskservice.addTaskComment(dto);
+		taskService.addTaskComment(dto);
 		System.out.println("Successfully completed");
 	}
 

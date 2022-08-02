@@ -1,4 +1,4 @@
-package com.chainsys.todo.pojo;
+package com.chainsys.todo.model;
 
 import java.util.ArrayList;
 import java.util.List;

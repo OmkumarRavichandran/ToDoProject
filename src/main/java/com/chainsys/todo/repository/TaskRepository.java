@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.chainsys.todo.pojo.Task;
+import com.chainsys.todo.model.Task;
 
 public interface TaskRepository extends CrudRepository<Task, Integer>{
 	

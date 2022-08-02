@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.chainsys.todo.pojo.User;
+import com.chainsys.todo.model.User;
 import com.chainsys.todo.service.UserService;
 
 @Controller
@@ -19,10 +19,10 @@ import com.chainsys.todo.service.UserService;
 public class UserController {
 
 	@Autowired
-	UserService userservice;
+	UserService userService;
 	@GetMapping("/list")
 	public String getAllUsers(Model model) {
-		List<User> uselist = userservice.getAllUsers();
+		List<User> uselist = userService.getAllUsers();
 		model.addAttribute("alluser",uselist);
 		return "list-users";
 	}
@@ -34,12 +34,12 @@ public class UserController {
 	}
 	@PostMapping("/add")
 	public String addUser(@ModelAttribute("adduser")User user) {
-		userservice.save(user);
+		userService.save(user);
 		return "redirect:/User1/list";
 	}
 	@GetMapping("/getuserid")
 	public String getUserById(@RequestParam("id") int id,Model model) {
-		User theuser = userservice.getById(id);
+		User theuser = userService.getById(id);
 		model.addAttribute("getuser",theuser);
 		return "find-user-id";
 	}

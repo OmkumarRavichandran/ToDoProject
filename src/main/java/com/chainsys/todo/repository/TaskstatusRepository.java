@@ -2,8 +2,8 @@ package com.chainsys.todo.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.chainsys.todo.pojo.Task;
-import com.chainsys.todo.pojo.TaskStatus;
+import com.chainsys.todo.model.Task;
+import com.chainsys.todo.model.TaskStatus;
 
 public interface TaskstatusRepository extends CrudRepository<TaskStatus, Integer>{
 

@@ -7,34 +7,34 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.chainsys.todo.pojo.Comments;
-import com.chainsys.todo.pojo.Task;
-import com.chainsys.todo.pojo.TaskCommentDTO;
+import com.chainsys.todo.model.Comments;
+import com.chainsys.todo.model.Task;
+import com.chainsys.todo.model.TaskCommentDTO;
 import com.chainsys.todo.repository.CommentRepository;
 import com.chainsys.todo.repository.TaskRepository;
 
 @Service
 public class TaskService {
 	@Autowired
-	private TaskRepository taskrepo;
+	private TaskRepository taskRepository;
 	@Autowired
-	private CommentRepository commentrepo;
+	private CommentRepository commentRepository;
 
 	public Task findById(int id) {
-		return taskrepo.findById(id);
+		return taskRepository.findById(id);
 	}
 
 	public Task save(Task tr) {
-		return taskrepo.save(tr);
+		return taskRepository.save(tr);
 	}
 
 	public List<Task> getallTask() {
-		List<Task> listTa = taskrepo.findAll();
+		List<Task> listTa = taskRepository.findAll();
 		return listTa;
 	}
 
 	public void deleteById(int id) {
-		taskrepo.deleteById(id);
+		taskRepository.deleteById(id);
 	}
 	public TaskCommentDTO getTaskComment(int id) {
 		Task task =findById(id);
@@ -57,7 +57,7 @@ public class TaskService {
 		List<Comments> commentList = dto.getCommentlist();
 		int count = commentList.size();
 		for(int i=0;i<count;i++) {
-			commentrepo.save(commentList.get(i));
+			commentRepository.save(commentList.get(i));
 		}
 	}
 }
