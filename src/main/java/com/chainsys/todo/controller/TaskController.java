@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,6 +41,7 @@ public class TaskController {
 	}
 	@PostMapping("/add")
 	public String save(@ModelAttribute("addtask")Task task) {
+		task.setDateCreated();
 		taskService.save(task);
 		return "redirect:/task/list";
 	}
@@ -50,7 +52,7 @@ public class TaskController {
 		return "find-task-id";
 	}
 	@GetMapping("/deletetask")
-	public String deleteTask(@RequestParam("userid")int id) {
+	public String deleteTask(@RequestParam("taskid")int id) {
 		taskService.deleteById(id);
 		return "redirect:/task/list";
 	}
@@ -67,35 +69,34 @@ public class TaskController {
 	}
 	@GetMapping("/gettaskcomment")
 	public String getComments(@RequestParam("id") int id,Model model) {
-		System.out.println("id"+id);
 		TaskCommentDTO dto = taskService.getTaskComment(id);
 		model.addAttribute("gettask",dto.getTask());
 		model.addAttribute("commentlist",dto.getCommentlist());
 		return "list-task-comment";
 	}
-	@GetMapping("/trans")
-	public void taskAndComment(@RequestParam("id") int id) {
-		TaskCommentDTO dto = new TaskCommentDTO();
-		Task task = new Task();
-		task.setTaskId(id);
-		task.setTaskTitle("Good");
-		task.setDescription("Excellent");
-		Date dt = new Date(92,7,14);
-		task.setDateCreated(dt);
-		task.setDateDue(dt);
-		task.setDateModified(dt);
-		task.setDateCompleted(dt);
-		dto.setTask(task);
-		List<Comments> commentlist = new ArrayList<Comments>();
-		for(int i=id+10;i<id+104;i++) {
-			Comments comment = new Comments();
-			comment.setTaskId(id);
-			comment.setCommentId(i);
-			comment.setComments("Excellent");
-			dto.addComment(comment);
-		}
-		taskService.addTaskComment(dto);
-		System.out.println("Successfully completed");
-	}
+
+//	@GetMapping("/trans")
+//	public void taskAndComment(@RequestParam("id") int id) {
+//		TaskCommentDTO dto = new TaskCommentDTO();
+//		Task task = new Task();
+//		task.setTaskId(id);
+//		task.setTaskTitle("Good");
+//		task.setDescription("Excellent");
+//		Date dt = new Date(92,7,14);
+//		task.setDateCreated();
+//		task.setDateModified(dt);
+//		task.setDateCompleted(dt);
+//		dto.setTask(task);
+//		List<Comments> commentlist = new ArrayList<Comments>();
+//		for(int i=id+10;i<id+104;i++) {
+//			Comments comment = new Comments();
+//			comment.setTaskId(id);
+//			comment.setCommentId(i);
+//			comment.setComments("Excellent");
+//			dto.addComment(comment);
+//		}
+//		taskService.addTaskComment(dto);
+//		System.out.println("Successfully completed");
+//	}
 
 }

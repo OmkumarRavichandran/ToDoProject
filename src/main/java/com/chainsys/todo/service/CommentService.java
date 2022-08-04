@@ -13,15 +13,15 @@ public class CommentService {
 	@Autowired
 	private CommentRepository commentRepository;
 
-	public Comments save(Comments cs) {
-		return commentRepository.save(cs);
+	public Comments save(Comments commentService) {
+		return commentRepository.save(commentService);
 	}
 	public void deleteById(int id) {
 		commentRepository.deleteById(id);
 	}
 	public List<Comments> getAllComments(){
-		List<Comments> listco =commentRepository.findAll();
-		return listco;
+		List<Comments> listComments =commentRepository.findAll();
+		return listComments;
 	}
 	public Comments findById(int id) {
 		return commentRepository.findById(id);

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +9,26 @@
 <title>User List</title>
 </head>
 <body>
-	<div id="table root">
+	<div id="getUser">
+		<table border="2" width="100%" cellpadding="2">
+			<thead>
+				<tr>
+					<th>User id</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Mobile Number</th>
+				</tr>
+			</thead>
+			<tbody>
+					<tr>
+						<td>${getUser.userId}</td>
+						<td>${getUser.name}</td>
+						<td>${getUser.email}</td>
+						<td>${getUser.mobileNo}</td>
+					</tr>
+			</tbody>
+		</table>
+<div id="table root">
 		<table border="2" width="100%" cellpadding="2">
 			<thead>
 				<tr>
@@ -23,7 +43,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="task" items="${alltask}">
+				<c:forEach var="task" items="${tasklist}">
 					<tr>
 						<td>${task.taskId}</td>
 						<td>${task.taskTitle}</td>

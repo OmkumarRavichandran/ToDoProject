@@ -37,12 +37,6 @@
 					</div>
 				</div>
 				<div>
-					<label for="dateDue">Date Due</label>
-					<div>
-						<form:input path="dateDue" />
-					</div>
-				</div>
-				<div>
 					<label for="dateModified">Date Modified</label>
 					<div>
 						<form:input path="dateModified" />
@@ -58,6 +52,12 @@
 					<label for="userId">User id</label>
 					<div>
 						<form:input path="userId" />
+					</div>
+				</div>
+				<div>
+					<label for="done">Done</label>
+					<div>
+						<form:input path="done" />
 					</div>
 				</div>
 				</div>

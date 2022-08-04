@@ -1,12 +1,19 @@
 package com.chainsys.todo.model;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.swing.JButton;
 @Entity
 @Table(name="task")
 public class Task {
@@ -28,10 +35,7 @@ public class Task {
 	private String description;
 	
 	@Column(name = "DATECREATED")
-	private Date dateCreated;
-	
-	@Column(name = "DATEDUE")
-	private Date dateDue;
+	private String dateCreated;
 	
 	@Column(name = "DATEMODIFIED")
 	private Date dateModified;
@@ -39,6 +43,34 @@ public class Task {
 	@Column(name = "DATECOMPLETED")
 	private Date dateCompleted;
 	
+	@Column(name = "DONE")
+	private String done;
+	
+	@OneToMany(mappedBy ="task",fetch=FetchType.LAZY)
+	private List<Comments> comment;
+	
+	public List<Comments> getComment() {
+		return comment;
+	}
+	public void setComment(List<Comments> comment) {
+		this.comment = comment;
+	}
+	@ManyToOne(fetch =FetchType.LAZY)
+	@JoinColumn(name = "USERID", nullable = false, insertable = false, updatable =false)
+	private User user;
+	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public String getDone() {
+		return done;
+	}
+	public void setDone(String done) {
+		this.done = done;
+	}
 	public int getTaskId() {
 		return taskId;
 	}
@@ -55,20 +87,15 @@ public class Task {
 		this.taskTitle = taskTitle;
 	}
 
-	public Date getDateCreated() {
+	public String getDateCreated() {
 		return dateCreated;
 	}
-
-	public void setDateCreated(Date dateCreated) {
+	public void setDateCreated() {
+		Calendar vCalendar = Calendar.getInstance();
+		String dateCreated = vCalendar.get(Calendar.DATE) + " / " + (vCalendar.get(Calendar.MONTH) + 1) + " / "
+				+ vCalendar.get(Calendar.YEAR) + " : " + vCalendar.get(Calendar.HOUR) + " : "
+				+ vCalendar.get(Calendar.MINUTE);
 		this.dateCreated = dateCreated;
-	}
-
-	public Date getDateDue() {
-		return dateDue;
-	}
-
-	public void setDateDue(Date dateDue) {
-		this.dateDue = dateDue;
 	}
 
 	public Date getDateModified() {
@@ -94,9 +121,5 @@ public class Task {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	@Override
-	public String toString() {
-		return String.format("%d,%d,%s,%s,%s,%s,%s,%s",userId,taskId,taskTitle,description,dateCreated,dateDue,dateModified,dateCompleted);
-	}
+	
 }

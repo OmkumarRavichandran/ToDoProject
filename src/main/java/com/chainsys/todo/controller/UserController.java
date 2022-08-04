@@ -12,10 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.todo.model.User;
+import com.chainsys.todo.model.UserTaskDTO;
 import com.chainsys.todo.service.UserService;
 
 @Controller
-@RequestMapping("/User1")
+@RequestMapping("/User1/index.jsp")
 public class UserController {
 
 	@Autowired
@@ -42,5 +43,12 @@ public class UserController {
 		User theuser = userService.getById(id);
 		model.addAttribute("getuser",theuser);
 		return "find-user-id";
+	}
+	@GetMapping("/getusertask")
+	public String getUserTask(@RequestParam("id")int id,Model model) {
+		UserTaskDTO userTask = userService.getUserTask(id);
+		model.addAttribute("getUser",userTask.getUser());
+		model.addAttribute("tasklist",userTask.getTaskList());
+		return "list-user-task";
 	}
 }

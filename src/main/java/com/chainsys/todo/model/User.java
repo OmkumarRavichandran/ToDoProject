@@ -1,8 +1,12 @@
 package com.chainsys.todo.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -50,10 +54,13 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	@Override
-	public String toString() {
-		return String.format("%d,%s,%s,%s,%s",userId,name,email,password,mobileNo);
+	@OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
+	private List<Task> task;
+	
+	public List<Task> getTask() {
+		return task;
 	}
-	
-	
+	public void setTask(List<Task> task) {
+		this.task = task;
+	}
 }

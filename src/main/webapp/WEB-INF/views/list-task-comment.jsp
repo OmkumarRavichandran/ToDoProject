@@ -37,12 +37,6 @@
 					</div>
 				</div>
 				<div>
-					<label for="dateDue">Date Due</label>
-					<div>
-						<form:input path="dateDue" readonly="true" />
-					</div>
-				</div>
-				<div>
 					<label for="dateModified">Date Modified</label>
 					<div>
 						<form:input path="dateModified" readonly="true" />
@@ -60,6 +54,12 @@
 						<form:input path="userId" readonly="true" />
 					</div>
 				</div>
+				<div>
+					<label for="done">Done</label>
+					<div>
+						<form:input path="done" />
+					</div>
+				</div>
 				</form:form>
 		</div>
 	<div id="commentlist">
@@ -69,6 +69,7 @@
 					<th>Task id</th>
 					<th>Comment ID</th>
 					<th>Comments</th>
+					<th>DateTime</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -77,6 +78,7 @@
 						<td>${com.taskId}</td>
 						<td>${com.commentId}</td>
 						<td>${com.comments}</td>
+						<td>${com.datetime}</td>
 				</c:forEach>
 			</tbody>
 		</table>

@@ -10,6 +10,8 @@ import com.chainsys.todo.model.Task;
 public interface CommentRepository extends CrudRepository<Comments, Integer>{
 	
 	Comments findById(int id);
-	Comments save(Comments tr);
+	Comments save(Comments comment);
 	List<Comments> findAll();
+	
+	List<Comments> findByTaskId(int id);
 }

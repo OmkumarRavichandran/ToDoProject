@@ -15,6 +15,7 @@
 					<th>Task id</th>
 					<th>Comment ID</th>
 					<th>Comments</th>
+					<th>DateTime</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -23,6 +24,8 @@
 						<td>${com.taskId}</td>
 						<td>${com.commentId}</td>
 						<td>${com.comments}</td>
+						<td>${com.datetime}</td>
+						
 						</tr>
 				</c:forEach>
 			</tbody>

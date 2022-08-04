@@ -43,10 +43,4 @@ public class TaskStatus {
 	public void setAddedTask(String addedTask) {
 		this.addedTask = addedTask;
 	}
-	@Override
-	public String toString() {
-		return String.format("%d,%d,%s,%s",userId,taskId,completedTask,addedTask);
-	}
-	
-
 }

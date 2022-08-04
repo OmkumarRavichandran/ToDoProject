@@ -28,13 +28,14 @@ public class CommentsController {
 	}
 	@GetMapping("/addcomment")
 	public String showAddForm(Model model) {
-		Comments com = new Comments();
-		model.addAttribute("addcomment", com);
+		Comments comment = new Comments();
+		model.addAttribute("addcomment", comment);
 		return "add-comment-form";
 	}
 	@PostMapping("/add")
-	public String save(@ModelAttribute("addcomment")Comments com) {
-		commentService.save(com);
+	public String save(@ModelAttribute("addcomment")Comments comment) {
+		comment.setDatetime();
+		commentService.save(comment);
 		return "redirect:/comment/list";
 	}
 	@GetMapping("/deletecomment")

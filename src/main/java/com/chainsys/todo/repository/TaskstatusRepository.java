@@ -7,6 +7,6 @@ import com.chainsys.todo.model.TaskStatus;
 
 public interface TaskstatusRepository extends CrudRepository<TaskStatus, Integer>{
 
-	TaskStatus save(Task tr);
+	TaskStatus save(Task task);
 	TaskStatus findById(int id);
 }
