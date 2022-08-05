@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.todo.model.Task;
 import com.chainsys.todo.model.TaskStatus;
+import com.chainsys.todo.service.TaskService;
 import com.chainsys.todo.service.TaskStatusService;
 
 @Controller
@@ -18,12 +19,12 @@ import com.chainsys.todo.service.TaskStatusService;
 public class TaskStatusController {
 	
 	@Autowired
-	TaskStatusService taskStatusService;
+	TaskService taskService;
 	
-	@GetMapping("/getuserid")
-	public String getUserById(@RequestParam("taskid") int id,Model model) {
-		TaskStatus theuser = taskStatusService.getAllTask(id);
-		model.addAttribute("gettask",theuser);
-		return "find-task-id";
+	@GetMapping("/list")
+	public String getAllUsers(Model model) {
+		List<Task> tasklist = taskService.getallTask();
+		model.addAttribute("alltask",tasklist);
+		return "list-task";
 	}
 }

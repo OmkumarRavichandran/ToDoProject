@@ -31,6 +31,9 @@ public class UserService {
 		List<User> listus =userRepository.findAll();
 		return listus;
 	}
+	public User getnamepassword(String name,String password) {
+		return userRepository.findByNameAndPassword(name, password);
+	}
 	@Transactional
 	public UserTaskDTO getUserTask(int id) {
 		User user = getById(id);

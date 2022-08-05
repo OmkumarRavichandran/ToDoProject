@@ -25,21 +25,51 @@
 					</div>
 				</div>
 				<div>
-					<label for="email">Email</label>
-					<div>
-						<form:input path="email" />
-					</div>
-				</div>
-				<div>
 					<label for="password">Password</label>
 					<div>
 						<form:input path="password" />
 					</div>
 				</div>
 				<div>
+					<label for="email">Email</label>
+					<div>
+						<form:input path="email" />
+					</div>
+				</div>
+				<div>
 					<label for="mobileNo">Mobile Number</label>
 					<div>
 						<form:input path="mobileNo" />
+					</div>
+				</div>
+				<div>
+					<label for="gender">Gender</label>
+					<div>
+						<form:input path="gender" />
+					</div>
+				</div>
+				<div>
+					<label for="address">Address</label>
+					<div>
+						<form:input path="address" />
+					</div>
+				</div>
+				<div>
+					<label for="state">State</label>
+					<div>
+						<form:input path="state" />
+					</div>
+				</div>
+				<div>
+					<label for="city">City</label>
+					<div>
+						<form:input path="city" />
+					</div>
+				</div>
+				<div>
+					<label for="pincode">Pin Code</label>
+					<div>
+						<form:input path="pincode" />
 					</div>
 				</div>
 				</div>

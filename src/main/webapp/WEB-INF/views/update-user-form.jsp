@@ -6,12 +6,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Get User</title>
+<title>Update User</title>
 </head>
 <body>
 	<div id="root">
 		<div id="form">
-			<form:form action="add" method="get" modelAttribute="getuser">
+			<form:form action="update" method="post" modelAttribute="updateuser">
 				<div>
 					<label for="userId">User id</label>
 					<div>
@@ -72,10 +72,12 @@
 						<form:input path="pincode" />
 					</div>
 				</div>
+				</div>
+				<div>
+					<form:button>Add New</form:button>
+				</div>
+			</form:form>
 		</div>
-	</div>
-	</form:form>
-	</div>
 	</div>
 </body>
 </html>

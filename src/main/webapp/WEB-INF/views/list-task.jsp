@@ -20,6 +20,7 @@
 					<th>Completed Date</th>
 					<th>User ID</th>
 					<th>Done</th>
+					<th>Edit</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -33,6 +34,7 @@
 						<td>${task.dateCompleted}</td> 
 						<td>${task.userId}</td> 
 						<td>${task.done}</td> 
+						<td><a href="updatetask?taskid=${task.taskId}">Edit</a></td>
 						</tr>
 				</c:forEach>
 			</tbody>

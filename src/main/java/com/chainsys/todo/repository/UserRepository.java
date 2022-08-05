@@ -13,6 +13,6 @@ public interface UserRepository extends CrudRepository<User, Integer>{
 	User findById(int id);
 	User save(User user);
 	List<User> findAll();
-
+	User findByNameAndPassword(String name , String password);
 	
 }

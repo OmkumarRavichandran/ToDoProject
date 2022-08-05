@@ -31,12 +31,6 @@
 					</div>
 				</div>
 				<div>
-					<label for="dateCreated">dateCreated</label>
-					<div>
-						<form:input path="dateCreated" />
-					</div>
-				</div>
-				<div>
 					<label for="dateModified">Date Modified</label>
 					<div>
 						<form:input path="dateModified" />

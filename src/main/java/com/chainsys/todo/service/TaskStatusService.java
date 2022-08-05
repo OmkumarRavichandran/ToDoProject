@@ -14,13 +14,12 @@ public class TaskStatusService {
 	@Autowired
 	private TaskstatusRepository taskStatusRepository;
 
-	public TaskStatus getAllTask(int id) {
-		return taskStatusRepository.findById(id);
+	public List<TaskStatus> getAddedTask() {
+		List<TaskStatus> taskStatus = taskStatusRepository.findAll();
+		return taskStatus;
 	}
+	
 
-	public Task findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 	
 }

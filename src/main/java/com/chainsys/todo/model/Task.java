@@ -28,6 +28,7 @@ public class Task {
 	@Id
 	@Column(name = "TASKID")
 	private int taskId;
+
 	@Column(name = "TASKTITLE")
 	private String taskTitle;
 	

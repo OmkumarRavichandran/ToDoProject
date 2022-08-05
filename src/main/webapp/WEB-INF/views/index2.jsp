@@ -10,8 +10,8 @@
     <h1 align="center">TODO Application</h1>
     <hr />
     <p>Message is: ${message}</p>
-    <h3 align="center"><a href="/userlogin">User Login</a></h3>
-    <h3 align="center"><a href="/adduser">Create New User</a></h3>
+    <h3 align="center"><a href="list">List of all User</a></h3>
+    <h3 align="center"><a href="task/addtask">Add Task</a></h3>
 
     
     <hr />

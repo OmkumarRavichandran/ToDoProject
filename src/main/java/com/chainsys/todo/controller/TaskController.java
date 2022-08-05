@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.chainsys.todo.model.Comments;
 import com.chainsys.todo.model.Task;
 import com.chainsys.todo.model.TaskCommentDTO;
+import com.chainsys.todo.model.TaskStatusDTO;
 import com.chainsys.todo.model.User;
 import com.chainsys.todo.service.CommentService;
 import com.chainsys.todo.service.TaskService;
@@ -63,8 +64,9 @@ public class TaskController {
 		return "update-task-form";
 	}
 	@PostMapping("/update")
-	public String updateTask(@ModelAttribute("updatetask")Task theDoc) {
-		taskService.save(theDoc);
+	public String updateTask(@ModelAttribute("updatetask")Task task) {
+		task.setDateCreated();
+		taskService.save(task);
 		return "redirect:/task/list";
 	}
 	@GetMapping("/gettaskcomment")
@@ -75,6 +77,14 @@ public class TaskController {
 		return "list-task-comment";
 	}
 
+	@GetMapping("/taskbyalltask")
+	public String getAddedTask(@RequestParam("id") int id,Model model) {
+		TaskStatusDTO dto =taskService.getTaskAndAddedTask(id);
+		model.addAttribute("gettask",dto.getTask());
+		model.addAttribute("taskstatus",dto.getTaskStatus());
+		return "list-task-addedTask";
+	}
+	
 //	@GetMapping("/trans")
 //	public void taskAndComment(@RequestParam("id") int id) {
 //		TaskCommentDTO dto = new TaskCommentDTO();

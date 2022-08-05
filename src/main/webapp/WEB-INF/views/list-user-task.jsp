@@ -16,15 +16,25 @@
 					<th>User id</th>
 					<th>Name</th>
 					<th>Email</th>
+					<th>Gender</th>
 					<th>Mobile Number</th>
+					<th>Address</th>
+					<th>State</th>
+					<th>City</th>
+					<th>Pincode</th>
 				</tr>
 			</thead>
 			<tbody>
 					<tr>
-						<td>${getUser.userId}</td>
-						<td>${getUser.name}</td>
-						<td>${getUser.email}</td>
-						<td>${getUser.mobileNo}</td>
+						<td>${getuser.userId}</td>
+						<td>${getuser.name}</td>
+						<td>${getuser.email}</td>
+						<td>${getuser.gender}</td> 
+						<td>${getuser.mobileNo}</td> 
+						<td>${getuser.address}</td> 
+						<td>${getuser.state}</td>
+						<td>${getuser.city}</td>
+						<td>${getuser.pincode}</td>  
 					</tr>
 			</tbody>
 		</table>
