@@ -13,8 +13,9 @@ public class CommentService {
 	@Autowired
 	private CommentRepository commentRepository;
 
-	public Comments save(Comments commentService) {
-		return commentRepository.save(commentService);
+	public Comments save(Comments comment) {
+		
+		return commentRepository.save(comment);
 	}
 	public void deleteById(int id) {
 		commentRepository.deleteById(id);

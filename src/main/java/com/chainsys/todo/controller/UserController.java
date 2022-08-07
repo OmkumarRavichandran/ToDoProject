@@ -92,6 +92,5 @@ public class UserController {
             return "redirect:/index";
         } else
             return "invalid-user-error";
-
     }
 }

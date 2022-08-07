@@ -7,45 +7,41 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.swing.JButton;
-@Entity
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 @Table(name="task")
+@Entity(name="task")
 public class Task {
 	@Column(name="USERID")
+	@Min(value=1 , message ="Id above user 1")
 	private int userId;
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
 	@Id
 	@Column(name = "TASKID")
+	@Min(value=1 , message ="Id above user 1")
 	private int taskId;
-
 	@Column(name = "TASKTITLE")
+	@NotNull(message ="address shouldn't be null")
 	private String taskTitle;
-	
 	@Column(name = "DESCRIPTION")
+	@NotNull(message ="Description shouldn't be null")
 	private String description;
-	
 	@Column(name = "DATECREATED")
 	private String dateCreated;
-	
 	@Column(name = "DATEMODIFIED")
+	@NotNull(message ="Date Modified shouldn't be null")
 	private Date dateModified;
-	
 	@Column(name = "DATECOMPLETED")
+	@NotNull(message ="Date Completed shouldn't be null")
 	private Date dateCompleted;
-	
-	@Column(name = "DONE")
-	private String done;
+	@Column(name = "STATUS")
+	@NotNull(message ="Status shouldn't be null")
+	private String status;
 	
 	@OneToMany(mappedBy ="task",fetch=FetchType.LAZY)
 	private List<Comments> comment;
@@ -56,6 +52,12 @@ public class Task {
 	public void setComment(List<Comments> comment) {
 		this.comment = comment;
 	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 	@ManyToOne(fetch =FetchType.LAZY)
 	@JoinColumn(name = "USERID", nullable = false, insertable = false, updatable =false)
 	private User user;
@@ -65,12 +67,6 @@ public class Task {
 	}
 	public void setUser(User user) {
 		this.user = user;
-	}
-	public String getDone() {
-		return done;
-	}
-	public void setDone(String done) {
-		this.done = done;
 	}
 	public int getTaskId() {
 		return taskId;
@@ -121,6 +117,12 @@ public class Task {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 }

@@ -49,7 +49,7 @@
 					<th>Modified Date</th>
 					<th>Completed Date</th>
 					<th>User ID</th>
-					<th>Done</th>
+					<th>Status</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -62,7 +62,7 @@
 						<td>${task.dateModified}</td> 
 						<td>${task.dateCompleted}</td> 
 						<td>${task.userId}</td> 
-						<td>${task.done}</td> 
+						<td>${task.status}</td> 
 						</tr>
 				</c:forEach>
 			</tbody>

@@ -2,16 +2,14 @@ create table User1(
 userid int not null primary key,
 name varchar(30) not null UNIQUE,
 password VARCHAR2(50) not null UNIQUE,
-email varchar(30),
-gender varchar(30),
-mobileno long,
-address VARCHAR2(100),
-state VARCHAR2(100),
-city VARCHAR2(100),
-pincode int
+email varchar(30) not null,
+gender varchar(30) not null,
+mobileno long not null,
+address VARCHAR2(100) not null,
+state VARCHAR2(100) not null,
+city VARCHAR2(100) not null,
+pincode int not null
 );
-
-
 
 
 create table task(
@@ -21,22 +19,14 @@ DESCRIPTION varchar(30)not null,
 DATECREATED VARCHAR2(50) not null,
 DATEMODIFIED date ,
 DATECOMPLETED date ,
-USERID int not null CONSTRAINT foreign_key_userid references user1(userid),
-done VARCHAR2(30)
+USERID int not null CONSTRAINT foreign_key_userid references user1(userid) ON DELETE CASCADE,
+status VARCHAR2(30)
 );
 
 
 create table comments(
-taskid not null constraint foreign_key_taskid references task(taskid),
+taskid not null constraint foreign_key_taskid references task(taskid) ON DELETE CASCADE,
 commentid int not null primary key,
 datetime varchar(30),
 comments VARCHAR2(100)
 );
-
-
-create table taskstatus(
-userid int not null constraint foreign_keyuserid references user1(userid),
-taskid int not null constraint foreign_keytaskid references task(taskid),
-completedtask varchar(30),
-constraint pk_user primary key(userid,taskid),
-addedtask varchar(30));

@@ -7,8 +7,8 @@
 <title>Error</title>
 </head>
 <body>
- <h2>Invalid Customer </h2>
+ <h2>Invalid User </h2>
  <div> Check your user name and password</div>
- <a href="/User1/user-login"> Return to User login</a>
+ <a href="/user-login"> Return to User login</a>
 </body>
 </html>

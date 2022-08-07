@@ -8,30 +8,46 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="USER1")
 public class User {
 	@Id
 	@Column(name = "userid")
+	@Min(value=1 , message ="Id above user 1")
 	private int userId;
 	@Column(name="name")
+	@NotNull(message ="name may not be null")
 	private String name;
 	@Column(name="email")
+	@Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}")
 	private String email;
 	@Column(name="password")
+	@NotNull(message ="Password may not be null")
 	private String password;
 	@Column(name="mobileno")
+	@Digits(integer = 10, fraction = 0)
 	private long mobileNo;
 	@Column(name="gender")
+	@NotNull(message ="name may not be null")
+	@NotBlank(message ="not be empty")
 	private String gender;
 	@Column(name="address")
+	@NotNull(message ="address may not be null")
 	private String address;
 	@Column(name="state")
+	@NotNull(message ="state may not be null")
 	private String state;
 	@Column(name="city")
+	@NotNull(message ="city may not be null")
 	private String city;
 	@Column(name="pincode")
+	@Digits(integer = 6, fraction = 0)
 	private int pincode;
 	
 	public String getName() {

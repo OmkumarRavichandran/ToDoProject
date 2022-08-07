@@ -12,14 +12,9 @@ import org.springframework.stereotype.Service;
 import com.chainsys.todo.model.Comments;
 import com.chainsys.todo.model.Task;
 import com.chainsys.todo.model.TaskCommentDTO;
-import com.chainsys.todo.model.TaskStatus;
-import com.chainsys.todo.model.TaskStatusDTO;
-import com.chainsys.todo.model.User;
 import com.chainsys.todo.repository.CommentRepository;
 import com.chainsys.todo.repository.TaskRepository;
-import com.chainsys.todo.repository.TaskstatusRepository;
 
-import net.bytebuddy.asm.Advice.OffsetMapping.Sort;
 
 @Service
 public class TaskService {
@@ -27,8 +22,10 @@ public class TaskService {
 	private TaskRepository taskRepository;
 	@Autowired
 	private CommentRepository commentRepository;
-@Autowired
-private TaskstatusRepository taskstatusRepository; 
+
+	public List<Task> taskGetByStatus(String status){
+		return taskRepository.getTaskIdByStatus(status);
+	}
 	public Task findById(int id) {
 		return taskRepository.findById(id);
 	}
@@ -66,18 +63,5 @@ private TaskstatusRepository taskstatusRepository;
 		for(int i=0;i<count;i++) {
 			commentRepository.save(commentList.get(i));
 		}
-	}
-	@Transactional
-	public TaskStatusDTO getTaskAndAddedTask(int id) {
-		Task task = findById(id);
-		TaskStatusDTO taskStatusDTO = new TaskStatusDTO();
-		taskStatusDTO.setTask(task);
-		List<TaskStatus> taskStatus = taskstatusRepository.findByTaskId(id);
-		Iterator<TaskStatus> iterator =taskStatus.iterator();
-		while(iterator.hasNext()) {
-			taskStatusDTO.addTaskStatus((TaskStatus)iterator.next());
-		}
-		return taskStatusDTO;
-		
 	}
 }

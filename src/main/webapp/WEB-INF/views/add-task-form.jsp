@@ -49,9 +49,9 @@
 					</div>
 				</div>
 				<div>
-					<label for="done">Done</label>
+					<label for="Status">Status</label>
 					<div>
-						<form:input path="done" />
+						<form:input path="status" />
 					</div>
 				</div>
 				</div>

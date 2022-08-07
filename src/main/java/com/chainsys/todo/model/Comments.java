@@ -10,18 +10,26 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "comments")
 public class Comments {
 	@Column(name = "taskid")
+	@Min(value=1 , message ="Task id Should above 1")
 	private int taskId;
 	@Id
 	@Column(name = "commentid")
+	@Min(value=1 , message ="Comment id Should above 1")
 	private int commentId;
 	@Column(name = "comments")
+	@NotBlank(message ="not be empty")
+	@NotNull(message ="address may not be null")
 	private String comments;
 	@Column(name = "datetime")
+	@NotBlank(message ="not be empty")
 	private String datetime;
 
 	@ManyToOne(fetch =FetchType.LAZY)

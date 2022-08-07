@@ -1,10 +1,10 @@
 package com.chainsys.todo.controller;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,13 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import com.chainsys.todo.model.Comments;
 import com.chainsys.todo.model.Task;
 import com.chainsys.todo.model.TaskCommentDTO;
-import com.chainsys.todo.model.TaskStatusDTO;
-import com.chainsys.todo.model.User;
-import com.chainsys.todo.service.CommentService;
 import com.chainsys.todo.service.TaskService;
 
 @Controller
@@ -34,6 +29,13 @@ public class TaskController {
 		model.addAttribute("alltask",tasklist);
 		return "list-task";
 	}
+	@GetMapping("/task/status")
+	public String getAllStatus(Model model) {
+		List<Task> taskStatus = taskService.taskGetByStatus("done");
+		model.addAttribute("status",taskStatus);
+		return "list-status-check";
+	}
+	
 	@GetMapping("/addtask")
 	public String showAddForm(Model model) {
 		Task task = new Task();
@@ -76,37 +78,4 @@ public class TaskController {
 		model.addAttribute("commentlist",dto.getCommentlist());
 		return "list-task-comment";
 	}
-
-	@GetMapping("/taskbyalltask")
-	public String getAddedTask(@RequestParam("id") int id,Model model) {
-		TaskStatusDTO dto =taskService.getTaskAndAddedTask(id);
-		model.addAttribute("gettask",dto.getTask());
-		model.addAttribute("taskstatus",dto.getTaskStatus());
-		return "list-task-addedTask";
-	}
-	
-//	@GetMapping("/trans")
-//	public void taskAndComment(@RequestParam("id") int id) {
-//		TaskCommentDTO dto = new TaskCommentDTO();
-//		Task task = new Task();
-//		task.setTaskId(id);
-//		task.setTaskTitle("Good");
-//		task.setDescription("Excellent");
-//		Date dt = new Date(92,7,14);
-//		task.setDateCreated();
-//		task.setDateModified(dt);
-//		task.setDateCompleted(dt);
-//		dto.setTask(task);
-//		List<Comments> commentlist = new ArrayList<Comments>();
-//		for(int i=id+10;i<id+104;i++) {
-//			Comments comment = new Comments();
-//			comment.setTaskId(id);
-//			comment.setCommentId(i);
-//			comment.setComments("Excellent");
-//			dto.addComment(comment);
-//		}
-//		taskService.addTaskComment(dto);
-//		System.out.println("Successfully completed");
-//	}
-
 }

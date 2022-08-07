@@ -5,6 +5,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>TODO Application</title>
+<style>
+body {
+	background-color: AntiqueWhite;
+	text-align: center;
+}
+label {
+	color: DarkRed
+}
+</style>
 </head>
 <body>
     <h1 align="center">TODO Application</h1>
@@ -23,5 +32,6 @@
     <p>PLOT NO 8,
     <p>DOOR NO 85 PONNIAMMAN NAGAR,AYANAMPAKKAM,</p>
     <p>CHENNAI TN 600095 IN</p>
+    
 </body>
 </html>
