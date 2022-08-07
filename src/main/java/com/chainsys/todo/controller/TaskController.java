@@ -29,11 +29,11 @@ public class TaskController {
 		model.addAttribute("alltask",tasklist);
 		return "list-task";
 	}
-	@GetMapping("/task/status")
+	@GetMapping("/status")
 	public String getAllStatus(Model model) {
 		List<Task> taskStatus = taskService.taskGetByStatus("done");
-		model.addAttribute("status",taskStatus);
-		return "list-status-check";
+		model.addAttribute("alltask",taskStatus);
+		return "list-task";
 	}
 	
 	@GetMapping("/addtask")
