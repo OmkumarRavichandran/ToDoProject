@@ -5,49 +5,58 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="USER1")
 public class User {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "toid")
+    @SequenceGenerator(name = "toid", sequenceName = "toid",  allocationSize = 1)
 	@Column(name = "userid")
-	@Min(value=1 , message ="Id above user 1")
 	private int userId;
 	@Column(name="name")
-	@NotNull(message ="name may not be null")
+	@Size(max = 20, min = 3, message = "*Name length should be 3 to 20")
+	@NotBlank(message = "*StaffName is required")
+	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid name ")
 	private String name;
 	@Column(name="email")
-	@Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}")
+	@Email(message = "*Invalid Email", regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}")
 	private String email;
 	@Column(name="password")
-	@NotNull(message ="Password may not be null")
+	@NotBlank(message = "*Password is required")
 	private String password;
 	@Column(name="mobileno")
-	@Digits(integer = 10, fraction = 0)
+	@Digits(message = "*Invalid Mobile Number", integer = 10, fraction = 0)
 	private long mobileNo;
 	@Column(name="gender")
-	@NotNull(message ="name may not be null")
-	@NotBlank(message ="not be empty")
+	@NotEmpty(message = "Gender is required")
 	private String gender;
 	@Column(name="address")
-	@NotNull(message ="address may not be null")
+	@NotBlank(message = "*Address is required")
 	private String address;
 	@Column(name="state")
-	@NotNull(message ="state may not be null")
+	@NotBlank(message = "*State is required")
+	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid State")
 	private String state;
 	@Column(name="city")
-	@NotNull(message ="city may not be null")
+	@NotBlank(message = "*City is required")
+	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid City")
 	private String city;
 	@Column(name="pincode")
-	@Digits(integer = 6, fraction = 0)
+	@Digits(message = "*Invalid Pincode", integer = 6, fraction = 0)
 	private int pincode;
 	
 	public String getName() {

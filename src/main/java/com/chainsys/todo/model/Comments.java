@@ -6,9 +6,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -22,7 +24,8 @@ public class Comments {
 	private int taskId;
 	@Id
 	@Column(name = "commentid")
-	@Min(value=1 , message ="Comment id Should above 1")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "toid")
+    @SequenceGenerator(name = "toid", sequenceName = "toid",  allocationSize = 1)
 	private int commentId;
 	@Column(name = "comments")
 	@NotBlank(message ="not be empty")

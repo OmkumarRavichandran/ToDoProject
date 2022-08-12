@@ -9,9 +9,9 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.chainsys.todo.dto.TaskCommentDTO;
 import com.chainsys.todo.model.Comments;
 import com.chainsys.todo.model.Task;
-import com.chainsys.todo.model.TaskCommentDTO;
 import com.chainsys.todo.repository.CommentRepository;
 import com.chainsys.todo.repository.TaskRepository;
 

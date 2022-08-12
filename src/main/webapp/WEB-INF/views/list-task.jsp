@@ -6,10 +6,24 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>User List</title>
+<style type="text/css">
+tr:hover {background-color: #ECF32D;}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+tr:nth-child(even) {
+  background-color: rgba(150, 212, 212, 0.4);
+}
+th:nth-child(even),td:nth-child(even) {
+  background-color: rgba(150, 212, 212, 0.4);
+}
+</style>
 </head>
 <body>
-	<div id="table root">
+	<div id="table root" align="center">
 		<table border="2" width="100%" cellpadding="2">
+		<h1>Task List</h1>
 			<thead>
 				<tr>
 					<th>Task id</th>
@@ -21,6 +35,8 @@
 					<th>User ID</th>
 					<th>Status</th>
 					<th>Edit</th>
+					<th>Delete</th>
+					<th>Comment</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -35,6 +51,8 @@
 						<td>${task.userId}</td> 
 						<td>${task.status}</td> 
 						<td><a href="updatetask?taskid=${task.taskId}">Edit</a></td>
+						<td><a href="deletetask?taskid=${task.taskId}">Delete</a></td>
+						<td><a href="/comment/addcomment?taskid=${task.taskId}">comment</a></td>
 						</tr>
 				</c:forEach>
 			</tbody>

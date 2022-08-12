@@ -8,9 +8,9 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.chainsys.todo.dto.UserTaskDTO;
 import com.chainsys.todo.model.Task;
 import com.chainsys.todo.model.User;
-import com.chainsys.todo.model.UserTaskDTO;
 import com.chainsys.todo.repository.TaskRepository;
 import com.chainsys.todo.repository.UserRepository;
 
@@ -33,6 +33,9 @@ public class UserService {
 	}
 	public User getnamepassword(String name,String password) {
 		return userRepository.findByNameAndPassword(name, password);
+	}
+	public void deleteById(int id) {
+		userRepository.deleteById(id);
 	}
 	@Transactional
 	public UserTaskDTO getUserTask(int id) {

@@ -1,7 +1,10 @@
-package com.chainsys.todo.model;
+package com.chainsys.todo.dto;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.chainsys.todo.model.Task;
+import com.chainsys.todo.model.User;
 
 public class UserTaskDTO {
 

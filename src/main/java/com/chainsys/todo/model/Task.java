@@ -1,7 +1,7 @@
 package com.chainsys.todo.model;
 
+import java.sql.Date;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -13,34 +13,32 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+@Entity
 @Table(name="task")
-@Entity(name="task")
 public class Task {
 	@Column(name="USERID")
-	@Min(value=1 , message ="Id above user 1")
 	private int userId;
 	@Id
 	@Column(name = "TASKID")
-	@Min(value=1 , message ="Id above user 1")
 	private int taskId;
 	@Column(name = "TASKTITLE")
-	@NotNull(message ="address shouldn't be null")
+	@Pattern(regexp = "^[A-Za-z\s]*$", message = "*Enter valid Task Title ")
 	private String taskTitle;
 	@Column(name = "DESCRIPTION")
-	@NotNull(message ="Description shouldn't be null")
+	@Pattern(regexp = "^[A-Za-z\s]*$", message = "*Enter valid Description ")
+	@Size(min=3, max=30, message="Enter valid Description")
 	private String description;
 	@Column(name = "DATECREATED")
 	private String dateCreated;
 	@Column(name = "DATEMODIFIED")
-	@NotNull(message ="Date Modified shouldn't be null")
 	private Date dateModified;
 	@Column(name = "DATECOMPLETED")
-	@NotNull(message ="Date Completed shouldn't be null")
 	private Date dateCompleted;
 	@Column(name = "STATUS")
-	@NotNull(message ="Status shouldn't be null")
 	private String status;
 	
 	@OneToMany(mappedBy ="task",fetch=FetchType.LAZY)
@@ -123,6 +121,5 @@ public class Task {
 	}
 	public void setStatus(String status) {
 		this.status = status;
-	}
-	
+	}	
 }

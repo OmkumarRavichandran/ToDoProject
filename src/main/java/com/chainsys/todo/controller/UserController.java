@@ -2,18 +2,23 @@ package com.chainsys.todo.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.todo.dto.UserTaskDTO;
+import com.chainsys.todo.model.Comments;
 import com.chainsys.todo.model.Task;
 import com.chainsys.todo.model.User;
-import com.chainsys.todo.model.UserTaskDTO;
+import com.chainsys.todo.service.TaskService;
 import com.chainsys.todo.service.UserService;
 
 @Controller
@@ -23,20 +28,47 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	@GetMapping("/todo")
-    public String webApp(Model m) {
-        String message = "Hello World, Created the website on this Mr. @ Omkumar";
-        m.addAttribute("message", message);
-        return "index";
-    }	
+	@Autowired
+	TaskService taskService;
+	
 	@GetMapping("/index")
-    public String webAppp(Model m) {
-        String message = "Hello World, Created the website on this Mr. @ Omkumar";
+    public String webAppp(Model model) {
+		List<Task> tasklist = taskService.getallTask();
+		model.addAttribute("alltask",tasklist);
+		return "home"; 
+    }
+	@GetMapping("/userindex")
+    public String userIndex(Model m) {
+		String message = "Hi";
         m.addAttribute("message", message);
-        return "index2";
+        return "userindex";
+    }
+	@GetMapping("/contactindex")
+    public String contactIndex(Model m) {
+		String message = "Hi";
+        m.addAttribute("message", message);
+        return "contactindex";
+    }
+	@GetMapping("/taskindex")
+    public String taskIndex(Model m) {
+		String message = "Hi";
+        m.addAttribute("message", message);
+        return "taskindex";
+    }
+	@GetMapping("/commentindex")
+    public String commentIndex(Model m) {
+		String message = "Hi";
+        m.addAttribute("message", message);
+        return "commentindex";
+    }
+	@GetMapping("/taskstatusindex")
+    public String taskstatusIndex(Model m) {
+		String message = "Hi";
+        m.addAttribute("message", message);
+        return "taskstatus";
     }
 	
-	@GetMapping("/list")
+	@GetMapping("/userlist")
 	public String getAllUsers(Model model) {
 		List<User> uselist = userService.getAllUsers();
 		model.addAttribute("alluser",uselist);
@@ -49,15 +81,26 @@ public class UserController {
 		return "add-user-form";
 	}
 	@PostMapping("/add")
-	public String addUser(@ModelAttribute("adduser")User user) {
+	public String addUser(@Valid @ModelAttribute("adduser")User user,Errors errors) {
+		if(errors.hasErrors()) {
+			return "add-user-form";
+		}
 		userService.save(user);
-		return "redirect:/user/list";
+		return "redirect:/userlist";
+	}
+	@GetMapping("/getuserform")
+	public String getUserForm() {
+		return "get-user-form";
 	}
 	@GetMapping("/getuserid")
 	public String getUserById(@RequestParam("id") int id,Model model) {
 		User theuser = userService.getById(id);
 		model.addAttribute("getuser",theuser);
 		return "find-user-id";
+	}
+	@GetMapping("/usermodifyform")
+	public String showUserModifyForm() {
+		return "user-modify-form";
 	}
 	@GetMapping("/updateuser")
 	public String showUpdateForm(Model model,@RequestParam("userid")int id) {
@@ -66,9 +109,21 @@ public class UserController {
 		return "update-user-form";
 	}
 	@PostMapping("/update")
-	public String updateUser(@ModelAttribute("updateuser")User user) {
+	public String updateUser(@ModelAttribute("updateuser")User user,Errors errors) {
+		if(errors.hasErrors()) {
+			return "add-staff-form";
+		}
 		userService.save(user);
-		return "redirect:/user/list";
+		return "redirect:/userlist";
+	}
+	@GetMapping("/deleteuserform")
+	public String deleteUserForm() {
+		return "delete-user-form";
+	}
+	@GetMapping("/deleteuser")
+	public String deleteUser(@RequestParam("userid")int id) {
+		userService.deleteById(id);
+		return "redirect:/userlist";
 	}
 	@GetMapping("/getusertask")
 	public String getUserTask(@RequestParam("id")int id,Model model) {
@@ -77,20 +132,22 @@ public class UserController {
 		model.addAttribute("tasklist",userTask.getTaskList());
 		return "list-user-task";
 	}
-	@GetMapping("/userlogin")
+	@GetMapping("/todo")
     public String adminaccessform(Model model) {
         User user = new User();
         model.addAttribute("user", user);
-        return "user-login";
+        return "userlogin";
     }                   
 
     @PostMapping("/checkuserlogin")
-    public String checkingAccess(@ModelAttribute("user") User use) {
+    public String checkingAccess(@ModelAttribute("user") User use,Model model) {
     	User user = userService.getnamepassword(use.getName(), use.getPassword());
         if (user!= null){
 
             return "redirect:/index";
-        } else
-            return "invalid-user-error";
+        } else {
+        	model.addAttribute("result","Invalid EmailID and Passoword");
+        }
+            return "userlogin";
     }
 }

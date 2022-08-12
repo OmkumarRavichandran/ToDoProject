@@ -7,8 +7,14 @@
 <title>TODO Application</title>
 <style>
 body {
-	background-color: AntiqueWhite;
-	text-align: center;
+	background-image:
+		url("https://thumbs.dreamstime.com/z/make-list-pen-blank-86847699.jpg");
+	height: 768px;
+	width: 1366px;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
 }
 label {
 	color: DarkRed
