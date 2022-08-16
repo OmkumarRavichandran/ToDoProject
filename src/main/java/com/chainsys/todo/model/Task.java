@@ -12,9 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.persistence.Transient;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 @Entity
@@ -34,6 +32,16 @@ public class Task {
 	private String description;
 	@Column(name = "DATECREATED")
 	private String dateCreated;
+	
+	@Column(name="DATEDUE")
+	private Date dueDate;
+	
+	public Date getDueDate() {
+		return dueDate;
+	}
+	public void setDueDate(Date dueDate) {
+		this.dueDate = dueDate;
+	}
 	@Column(name = "DATEMODIFIED")
 	private Date dateModified;
 	@Column(name = "DATECOMPLETED")
@@ -41,6 +49,24 @@ public class Task {
 	@Column(name = "STATUS")
 	private String status;
 	
+	@Transient
+	private int remainingDays;
+	
+	public int getRemainingDays() {
+		return remainingDays;
+	}
+	@Column(name = "PRIORITY")
+	private String priority;
+	
+	public String getPriority() {
+		return priority;
+	}
+	public void setPriority(String priority) {
+		this.priority = priority;
+	}
+	public void setRemainingDays(int remainingDays) {
+		this.remainingDays = remainingDays;
+	}
 	@OneToMany(mappedBy ="task",fetch=FetchType.LAZY)
 	private List<Comments> comment;
 	

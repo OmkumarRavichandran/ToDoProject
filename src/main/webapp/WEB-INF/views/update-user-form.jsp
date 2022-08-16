@@ -15,7 +15,7 @@
 
 body {
 	background-image:
-		url("https://previews.123rf.com/images/mettus/mettus1303/mettus130303963/18629743-abstract-watercolor-background-paper-design-of-bright-color-splashes-modern-art.jpg");
+		url("https://wallpapers.com/images/hd/plain-blue-glitch-r5ckwv91utiy3tjv.webp");
 	height: 768px;
 	width: 1366px;
 	background-position: center;
@@ -23,148 +23,217 @@ body {
 	background-size: cover;
 	position: relative;
 }
-.form {
-border: none;
-border-radius: 2px;
-margin-bottom: 12px;
-overflow: hidden;
-padding: 0 .625em;
-text-align: center;
+
+* {
+	box-sizing: border-box;
 }
 
-.form label {
-cursor: pointer;
-display: inline-block;
-padding: 3px 6px;
-text-align: right;
-width: 150px;
-vertical-align: top;
-text-align: center;
+input[type=text], select, textarea {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	resize: vertical;
 }
-.form input {
-font-size: inherit;
-border-radious: 4px;
-background-color: lemonchiffon;
-padding: 8px;
-text-align: center;
+
+label {
+	padding: 12px 12px 12px 0;
+	display: inline-block;
 }
-.form input:hover {
-	background-color: #ffff66;
+
+.container {
+	margin-top: 1%;
+	margin-left: 30%;
+	border-radius: 5px;
+	background-color: #ffff99;
+	padding: 30px;
+	width: 40%;
+	float: left;
 }
-button {
-text-align: center;
-padding: 8px;
-background: #fff;
-	color: #ff7200;
+
+.col-25 {
+	float: left;
+	width: 30%;
+	margin-top: 6px;
+	margin-left: 10px;
 }
-.btnn:hover {
-	background: #fff;
-	color: #ff7200;
+
+.col-75 {
+	float: left;
+	width: 55%;
+	margin-top: 6px;
+}
+
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.but {
+	display: inline-block;
+	padding: 10px 20px;
+	font-size: 18px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+	color: white;
+	background-color: #6bb6ff;
+	border: none;
+	border-radius: 10px;
+	box-shadow: 0 9px #1E90FF;
+	margin-left: 190px;
+	margin-top: 10px;
+}
+.btn {
+	display: inline-block;
+	padding: 10px 20px;
+	font-size: 18px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+	color: white;
+	background-color: #6bb6ff;
+	border: none;
+	border-radius: 10px;
+	box-shadow: 0 9px #1E90FF;
+	margin-left: 190px;
+	margin-top: 10px;
+}
+
+.btn:hover {
+	background-color: #6bb6ff
+}
+
+.btn:active {
+	background-color: #9932CC;
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
 }
 </style>
 </head>
 <body>
-	<div id="root" align ="center">
-		<div class="form">
-			<form:form action="update" method="post" modelAttribute="updateuser">
-				<div>
+	<div class="container">
+		<h1 class="but">Modify User</h1>
+		<form:form action="update" method="post" modelAttribute="updateuser">
+
+			<div class="row">
+				<div class="col-25">
 					<label for="userId">User id</label>
-					<div>
-						<form:input path="userId" placeholder="User ID"
-							/>
-					</div>
+				</div>
+				<div class="col-75">
+					<form:input path="userId" placeholder="User ID" />
 				</div>
 				<form:errors path="userId" class="text-danger" />
-			
-				<div>
-					<label for="name">Name</label>
-					<div>
-						<form:input path="name" placeholder="Name"
-							title="Name can't be empty or must contain only alphabets" 
-						pattern="^[a-zA-Z]+$" required="true"/>
-					</div>
-				</div>
-					<form:errors path="name" class="text-danger" />
-				<div>
-					<label for="password">Password</label>
-					<div>
-						<form:input path="password" placeholder="Password"
-							pattern="^[A-Za-z0-9._%+-]+$"
-							title="Enter valid Password" required="true" />
-					</div>
-				</div>
-				<form:errors path="password" class="text-danger" />
-				<div>
-					<label for="email">Email</label>
-					<div>
-						<form:input path="email" placeholder="Email"
-							pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$"
-							title="Enter valid email ex: example@gmail.com" required="true"/>
-					</div>
-				</div>
-				<form:errors path="email" class="text-danger" />
-				<div>
-					<label for="mobileNo">Mobile Number</label>
-					<div>
-						<form:input path="mobileNo" placeholder="Mobile Number"
-							pattern="[1-9]{1}[0-9]{9}"
-							title="Phone number should have atleast 10 digits"
-							required="true"/>
-					</div>
-				</div>
-				<form:errors path="mobileNo" class="text-danger" />
-				<%-- <div>
-					<label for="gender">Gender</label>
-					<div>
-						<form:input path="gender" />
-					</div>
-				</div> --%>
-				
-				<div>
-					<label for="address">Address</label>
-					<div>
-						<form:input path="address" placeholder="Address"
-							/>
-					</div>
-				</div>
-				<form:errors path="address" class="text-danger" />
-				<div class="button">
-					<label for="gender" class="button">Gender</label>
-					<div>
-						<form:select path="gender" class="button" placeholder="Gender">
-							<form:option value="Male">Male</form:option>
-							<form:option value="Female">Female</form:option>
-						</form:select>
-					</div>
-				</div>
-				<div>
-					<label for="state">State</label>
-					<div>
-						<form:input path="state" />
-					</div>
-				</div> 
-				<form:errors path="state" class="text-danger" />
-				<div>
-					<label for="city">City</label>
-					<div>
-						<form:input path="city" />
-					</div>
-				</div>
-				<form:errors path="city" class="text-danger" />
-				<div>
-					<label for="pincode">Pin Code</label>
-					<div>
-						<form:input path="pincode" />
-					</div>
-				</div>
-				<form:errors path="pincode" class="text-danger" />
-				
-				
-				<div>
-					<form:button>Update</form:button>
-				</div>
-				</form:form> 
 			</div>
-		</div>
+
+			<div class="row">
+				<div class="col-25">
+					<label for="name">Name</label>
+				</div>
+				<div class="col-75">
+					<form:input path="name" placeholder="Name"
+						title="Name can't be empty or must contain only alphabets"
+						pattern="^[a-zA-Z]+$" required="true" />
+				</div>
+				<form:errors path="name" class="text-danger" />
+			</div>
+
+			<div class="row">
+			<div class="col-25">
+				<label for="password">Password</label>
+				</div>
+				<div class="col-75">
+					<form:input path="password" placeholder="Password"
+						pattern="^[A-Za-z0-9._%+-]+$" title="Enter valid Password"
+						required="true" />
+			</div>
+			<form:errors path="password" class="text-danger" />
+			</div>
+			
+			<div class="row">
+			<div class="col-25">
+				<label for="email">Email</label>
+				</div>
+				<div class="col-75">
+					<form:input path="email" placeholder="Email"
+						pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$"
+						title="Enter valid email ex: example@gmail.com" required="true" />
+			</div>
+			<form:errors path="email" class="text-danger" />
+			</div>
+			
+			<div class="row">
+			<div class="col-25">
+				<label for="mobileNo">Mobile Number</label>
+				</div>
+				<div class="col-75">
+					<form:input path="mobileNo" placeholder="Mobile Number"
+						pattern="[1-9]{1}[0-9]{9}"
+						title="Phone number should have atleast 10 digits" required="true" />
+			</div>
+			<form:errors path="mobileNo" class="text-danger" />
+			</div>
+			
+			<div class="row">
+			<div class="col-25">
+				<label for="address">Address</label>
+				</div>
+				<div class="col-75">
+					<form:input path="address" placeholder="Address" />
+			</div>
+			<form:errors path="address" class="text-danger" />
+			</div>
+			
+			<div class="row">
+			<div class="col-25">
+				<label for="gender" class="button">Gender</label>
+				</div>
+				<div class="col-75">
+					<form:select path="gender" class="button" placeholder="Gender">
+						<form:option value="Select">Select</form:option>
+						<form:option value="Male">Male</form:option>
+						<form:option value="Female">Female</form:option>
+					</form:select>
+				</div>
+			</div>
+			
+			<div class="row">
+			<div class="col-25">
+				<label for="state">State</label>
+				</div>
+				<div class="col-75">
+					<form:input path="state" />
+			</div>
+			<form:errors path="state" class="text-danger" />
+			</div>
+			
+			<div class="row">
+			<div class="col-25">
+				<label for="city">City</label>
+				</div>
+				<div class="col-75">
+					<form:input path="city" />
+			</div>
+			<form:errors path="city" class="text-danger" />
+			</div>
+			
+			<div class="row">
+			<div class="col-25">
+				<label for="pincode">Pin Code</label>
+				</div>
+				<div class="col-75">
+					<form:input path="pincode" />
+			</div>
+			<form:errors path="pincode" class="text-danger" />
+			</div>
+
+			<div class="row">
+				<form:button class="btn">Update User</form:button>
+			</div>
+		</form:form>
+	</div>
 </body>
 </html>

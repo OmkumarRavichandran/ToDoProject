@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Get Task</title>
+<title>Get User Task</title>
 <style type="text/css">
 body {
 	background-image:
@@ -97,14 +97,14 @@ label {
 </head>
 <body>
 	<div class="container" align="center">
-		<h3 align="center">Get Task</h3>
+		<h3 align="center">Get User Task</h3>
 		<br>
-		<form action="getTaskid" method="get" style="margin: 0;">
+		<form action="getusertask" method="get" style="margin: 0;">
 			<div class="row">
 			<label>Enter Task ID</label> 
 			</div>
-			<input type="text" placeholder="Task id"
-				name="taskid" class="row"> 
+			<input type="text" placeholder="User id"
+				name="id" class="row"> 
 				<input type='submit' value="Get"
 				name="submit" class="btn">
 		</form>

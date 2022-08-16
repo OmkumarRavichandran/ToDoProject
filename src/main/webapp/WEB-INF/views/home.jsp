@@ -10,7 +10,7 @@
 <style type="text/css">
 body {
 	background-image:
-		url("https://thumbs.dreamstime.com/z/make-list-pen-blank-86847699.jpg");
+		url("https://wallpapers.com/images/hd/plain-blue-glitch-r5ckwv91utiy3tjv.webp");
 	height: 768px;
 	width: 1366px;
 	background-position: center top;
@@ -133,9 +133,11 @@ tr:hover {background-color: Aquamarine;  /coral  /
 				<i class="dropbtn"> User <i class="fa fa-caret-down"></i>
 				</i>
 				<div class="dropdown-content">
-					<a href="/userlist">List of User</a> <a href="/getuserform">Get
-						User Details</a> <a href="/usermodifyform">Modify User</a> <a
-						href="/deleteuserform">Delete User</a>
+					<a href="/userlist">List of User</a> 
+					<a href="/getuserform">Get User Details</a> 
+					<a href="/usermodifyform">Modify User</a> 
+					<a href="/deleteuserform">Delete User</a>
+					<a href="/getusertaskform">Get User Task Details</a>
 				</div>
 			</div>
 			<li></li>
@@ -143,10 +145,12 @@ tr:hover {background-color: Aquamarine;  /coral  /
 				<i class="dropbtn"> Task <i class="fa fa-caret-down"></i>
 				</i>
 				<div class="dropdown-content">
-					<a href="/task/list">List of Task</a> <a href="/task/addtask">Add
-						Task</a> <a href="/task/getTask">Get Task</a> <a
-						href="/task/deleteTask">Delete Task</a> <a href="/task/updateTask">Modify
-						Task</a> <a href="/task/getTaskcomments">Get Task Comments</a>
+					<a href="/task/list">List of Task</a> 
+					<a href="/task/addtask">Add Task</a> 
+					<a href="/task/getTask">Get Task</a> 
+					<a href="/task/deleteTask">Delete Task</a> 
+					<a href="/task/updateTask">Modify Task</a> 
+					<a href="/task/getTaskcomments">Get Task Comments</a>
 				</div>
 			</div>
 			<li></li>
@@ -165,6 +169,23 @@ tr:hover {background-color: Aquamarine;  /coral  /
 				</i>
 				<div class="dropdown-content">
 					<a href="/contactindex">Contact</a>
+				</div>
+			</div>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<div class="dropdown">
+				<i class="dropbtn"> Logout<i class="fa fa-caret-down"></i>
+				</i>
+				<div class="dropdown-content">
+					<a href="/todo">Logout</a>
 				</div>
 			</div>
 		</ul>
@@ -200,7 +221,7 @@ tr:hover {background-color: Aquamarine;  /coral  /
 						<td>${task.status}</td>
 						<td><a href="/task/updatetask?taskid=${task.taskId}">Edit</a></td>
 						<td><a href="/task/deletetask?taskid=${task.taskId}">Delete</a></td>
-						<td><a href="/comment/addcomment?taskid=${task.taskId}">comment</a></td>
+						<td><a href="/comment/addcomment?taskid=${task.taskId}">Comment</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

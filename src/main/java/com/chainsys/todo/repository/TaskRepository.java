@@ -18,4 +18,7 @@ public interface TaskRepository extends CrudRepository<Task, Integer>{
 	@Query(value="SELECT * FROM Task where status=?1",nativeQuery=true)
 	public List<Task> getTaskIdByStatus(String status);
 	
+	@Query(value="SELECT * FROM Task where priority=?1",nativeQuery=true)
+	public List<Task> getTaskIdByPriority(String priority);
+	
 }

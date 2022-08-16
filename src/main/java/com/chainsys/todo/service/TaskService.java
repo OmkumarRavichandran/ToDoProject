@@ -26,6 +26,12 @@ public class TaskService {
 	public List<Task> taskGetByStatus(String status){
 		return taskRepository.getTaskIdByStatus(status);
 	}
+	
+	public List<Task> taskGetByPriority(String priority){
+		return taskRepository.getTaskIdByPriority(priority);
+	}
+	
+	
 	public Task findById(int id) {
 		return taskRepository.findById(id);
 	}

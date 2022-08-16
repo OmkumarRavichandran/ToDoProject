@@ -24,16 +24,15 @@ import com.chainsys.todo.service.UserService;
 @Controller
 @RequestMapping("/")
 public class UserController {
-
 	@Autowired
 	UserService userService;
-	
 	@Autowired
 	TaskService taskService;
 	
 	@GetMapping("/index")
     public String webAppp(Model model) {
 		List<Task> tasklist = taskService.getallTask();
+		
 		model.addAttribute("alltask",tasklist);
 		return "home"; 
     }
@@ -85,8 +84,8 @@ public class UserController {
 		if(errors.hasErrors()) {
 			return "add-user-form";
 		}
-		userService.save(user);
-		return "redirect:/userlist";
+		user = userService.save(user);
+		return "redirect:/todo";
 	}
 	@GetMapping("/getuserform")
 	public String getUserForm() {
@@ -125,6 +124,11 @@ public class UserController {
 		userService.deleteById(id);
 		return "redirect:/userlist";
 	}
+	@GetMapping("/getusertaskform")
+	public String getUserTask() {
+		return "get-user-task";
+	}
+	
 	@GetMapping("/getusertask")
 	public String getUserTask(@RequestParam("id")int id,Model model) {
 		UserTaskDTO userTask = userService.getUserTask(id);
@@ -146,7 +150,7 @@ public class UserController {
 
             return "redirect:/index";
         } else {
-        	model.addAttribute("result","Invalid EmailID and Passoword");
+        	model.addAttribute("result","Invalid UserName and Passoword");
         }
             return "userlogin";
     }

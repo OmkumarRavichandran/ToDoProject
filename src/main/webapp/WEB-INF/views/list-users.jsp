@@ -7,16 +7,26 @@
 <meta charset="ISO-8859-1">
 <title>User List</title>
 <style type="text/css">
-tr:hover {background-color: #ECF32D;}
+body {
+	background-image:
+		url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6kes4oqn-17l2nTBcwLk13rQXWZOIqtnSAg&usqp=CAU");
+	height: 768px;
+	width: 1366px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+tr:hover {background-color: #999966;}
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
 }
 tr:nth-child(even) {
-  background-color: rgba(150, 212, 212, 0.4);
+  background-color: rgba(255,0,0,0.3);
 }
 th:nth-child(even),td:nth-child(even) {
-  background-color: rgba(150, 212, 212, 0.4);
+ background-color: rgba(192,0,192,0.3);
 }
 </style>
 </head>
