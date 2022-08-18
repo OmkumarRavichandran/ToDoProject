@@ -62,7 +62,7 @@
 		<div class="container">
   <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Add Comment</button>
   <div id="demo" class="collapse">
-    <iframe src="/comment/addcomment"> </iframe>
+    <iframe src="/comment/addcomment" title="Frame"> </iframe>
   </div>
 </div>
 	<script>

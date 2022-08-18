@@ -52,7 +52,7 @@ label {
 	float: left;
 	width: 55%;
 	margin-top: 6px;
-	align:center;
+	align-content:center;
 }
 
 .row:after {
