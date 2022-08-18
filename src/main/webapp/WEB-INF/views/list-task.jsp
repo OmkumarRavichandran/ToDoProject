@@ -17,7 +17,7 @@
 		<div>
 			<table style="width:100%;background-color:#ffe6f7;">
 			<caption></caption>
-			<h1>Task List</h1>
+			<h2>Task List</h2>
 				<thead>
 					<tr>
 						<th>Task id</th>
