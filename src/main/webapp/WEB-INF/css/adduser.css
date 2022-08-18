@@ -2,7 +2,9 @@
 	color: #e80c4d;
 	font-size: 0.9em;
 }
-
+h2{
+	align:center;
+}
 body {
 	background-image:
 		url("https://wallpapers.com/images/hd/plain-blue-glitch-r5ckwv91utiy3tjv.webp");

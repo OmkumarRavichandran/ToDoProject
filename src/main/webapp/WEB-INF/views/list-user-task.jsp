@@ -14,7 +14,8 @@
 <body>
 	<div class="container">
 	<h1 class="btn">Get User Task Details</h1>
-		<table border="10" width="100%" cellpadding="15">
+		<table>
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>User id</th>
@@ -44,7 +45,8 @@
 		</table>
 </div>
 <div class="container">
-		<table border="10" width="100%" cellpadding="20">
+		<table>
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>Task id</th>

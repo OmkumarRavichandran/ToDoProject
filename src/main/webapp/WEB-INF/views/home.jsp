@@ -14,12 +14,11 @@
 </style>
 </head>
 <body>
-	<h1 align="center">TODO Application</h1>
+	<h1>TODO Application</h1>
 	<div class="menu">
 		<ul>
 			<div class="dropdown">
-				<i class="dropbtn"> User </i>
-				</i>
+				<em class="dropbtn"> User </em>
 				<div class="dropdown-content">
 					<a href="/userlist">List of User</a> 
 					<a href="/getuserform">Get User Details</a> 
@@ -30,8 +29,8 @@
 			</div>
 			<li></li>
 			<div class="dropdown">
-				<i class="dropbtn"> Task <i class="fa fa-caret-down"></i>
-				</i>
+				<em class="dropbtn"> Task <em class="fa fa-caret-down"></em>
+				</em>
 				<div class="dropdown-content">
 					<a href="/task/list">List of Task</a> 
 					<a href="/task/addtask">Add Task</a> 
@@ -43,7 +42,7 @@
 			</div>
 			<li></li>
 			<div class="dropdown">
-				<i class="dropbtn"> TaskStatus </i>
+				<em class="dropbtn"> TaskStatus </em>
 				<div class="dropdown-content">
 					<a href="/task/list">List of Task</a> 
 					<a href="/task/status">Completed Task</a>
@@ -64,8 +63,8 @@
 			<li></li>
 			<li></li>
 			<div class="dropdown">
-				<i class="dropbtn"> Logout<i class="fa fa-caret-down"></i>
-				</i>
+				<em class="dropbtn"> Logout<em class="fa fa-caret-down"></em>
+				</em>
 				<div class="dropdown-content">
 					<a href="/todo">Logout</a>
 				</div>
@@ -74,7 +73,8 @@
 	</div>
 	<div></div>
 	<div id="form" style="text-align: center; margin-top: 12%;">
-		<table border="2" width="100%" cellpadding="2">
+		<table>
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>Task id</th>

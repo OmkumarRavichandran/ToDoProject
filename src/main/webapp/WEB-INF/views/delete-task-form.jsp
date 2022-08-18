@@ -10,8 +10,8 @@
 </style>
 </head>
 <body>
- <div class="container" align="center">
-	<h3 align="center">Delete Task</h3>
+ <div class="container">
+	<h3>Delete Task</h3>
 	<br>
 	<form action="deletetask" method="get" style="margin: 0;">
 		<div class="row">

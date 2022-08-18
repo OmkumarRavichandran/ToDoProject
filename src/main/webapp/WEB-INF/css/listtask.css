@@ -12,6 +12,9 @@ iframe{
 		background-size: cover;
 		position: relative;
 	}
+	div{
+	text-align:center;
+	}
 	tr:hover {background-color: #999966;}
 	table, th, td {
 	  border: 1px solid black;

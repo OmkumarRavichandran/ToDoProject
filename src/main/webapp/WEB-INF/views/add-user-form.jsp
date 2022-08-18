@@ -14,7 +14,7 @@
 </head>
 <body>
 		<div class="container">
-		<h2 align="center">Sign Up</h2>
+		<h2>Sign Up</h2>
 			<form:form action="add" method="post" modelAttribute="adduser">
 
 				<div class="row">

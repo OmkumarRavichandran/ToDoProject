@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.todo.dto.UserTaskDTO;
-import com.chainsys.todo.model.Comments;
 import com.chainsys.todo.model.Task;
 import com.chainsys.todo.model.User;
 import com.chainsys.todo.service.TaskService;

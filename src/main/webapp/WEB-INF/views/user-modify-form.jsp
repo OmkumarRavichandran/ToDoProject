@@ -10,8 +10,8 @@
 </style>
 </head>
 <body>
-	<div class="container" align="center">
-		<h3 align="center">Modify user</h3>
+	<div class="container">
+		<h3>Modify user</h3>
 		<br>
 		<form action="/updateuser" method="get" style="margin: 0;">
 			<div class="row">

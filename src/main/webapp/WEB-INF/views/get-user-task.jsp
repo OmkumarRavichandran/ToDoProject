@@ -10,8 +10,8 @@
 </style>
 </head>
 <body>
-	<div class="container" align="center">
-		<h3 align="center">Get User Task</h3>
+	<div class="container">
+		<h3>Get User Task</h3>
 		<br>
 		<form action="getusertask" method="get" style="margin: 0;">
 			<div class="row">

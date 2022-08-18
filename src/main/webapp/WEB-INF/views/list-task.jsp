@@ -13,9 +13,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	</head>
-	
 	<body>
-		<div id="table root" align="center">
+		<div>
 			<table style="width:100%;background-color:#ffe6f7;">
 			<caption></caption>
 			<h1>Task List</h1>

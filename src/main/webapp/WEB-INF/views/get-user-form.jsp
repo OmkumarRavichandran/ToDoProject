@@ -10,8 +10,8 @@
 </style>
 </head>
 <body>
-   <div class="container" align="center">
-    <h3 align="center">Get user</h3>
+   <div class="container">
+    <h3>Get user</h3>
     <form action="getuserid" method="get" style="margin: 0;">
     <div class="row" >
         <label>Enter User ID</label> 

@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.todo.dto.TaskCommentDTO;
 import com.chainsys.todo.model.Task;
-import com.chainsys.todo.service.EmailService;
 import com.chainsys.todo.service.TaskService;
 
 @Controller

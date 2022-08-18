@@ -52,10 +52,10 @@ public class Comments {
 
 	public void setDatetime() {
 		Calendar vCalendar = Calendar.getInstance();
-		String datetime = vCalendar.get(Calendar.DATE) + " / " + (vCalendar.get(Calendar.MONTH) + 1) + " / "
+		String dateTime = vCalendar.get(Calendar.DATE) + " / " + (vCalendar.get(Calendar.MONTH) + 1) + " / "
 				+ vCalendar.get(Calendar.YEAR) + " : " + vCalendar.get(Calendar.HOUR) + " : "
 				+ vCalendar.get(Calendar.MINUTE);
-		this.datetime = datetime;
+		this.datetime = dateTime;
 	}
 
 	public int getTaskId() {

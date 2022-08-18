@@ -10,7 +10,7 @@
 </style>
 </head>
 <body>
-	<div class="container" align="center">
+	<div class="container">
 		<h3>Delete user</h3>
 		<br>
 		<form action="deleteuser" method="get" style="margin: 0;">

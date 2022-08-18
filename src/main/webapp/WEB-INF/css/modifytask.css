@@ -8,7 +8,12 @@ body {
 	background-size: cover;
 	position: relative;
 }
-
+div{
+	text-align:center;
+}
+h3{
+	text-align:center;
+}
 * {
 	box-sizing: border-box;
 }

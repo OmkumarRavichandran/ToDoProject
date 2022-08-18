@@ -98,7 +98,8 @@
 				</form:form>
 		</div>
 	<div class="container">
-		<table border="2" width="100%" cellpadding="2">
+		<table>
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>Task id</th>
