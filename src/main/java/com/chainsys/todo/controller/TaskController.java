@@ -38,9 +38,21 @@ public class TaskController {
 		return "list-task";
 	}
 	
-	@GetMapping("/priority")
+	@GetMapping("/highpriority")
 	public String getAllPriority(Model model) {
 		List<Task> taskPriority = taskService.taskGetByPriority("High");
+		model.addAttribute("alltask", taskPriority);
+		return "list-task";
+	}
+	@GetMapping("/mediumpriority")
+	public String getAllMediumPriority(Model model) {
+		List<Task> taskPriority = taskService.taskGetByPriority("Medium");
+		model.addAttribute("alltask", taskPriority);
+		return "list-task";
+	}
+	@GetMapping("/lowpriority")
+	public String getAllLowPriority(Model model) {
+		List<Task> taskPriority = taskService.taskGetByPriority("Low");
 		model.addAttribute("alltask", taskPriority);
 		return "list-task";
 	}

@@ -1,0 +1,115 @@
+body {
+	background-image:
+		url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6kes4oqn-17l2nTBcwLk13rQXWZOIqtnSAg&usqp=CAU");
+	height: 768px;
+	width: 1366px;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+
+.menu {
+	width: 400px;
+	float: left;
+	height: 70px;
+}
+
+ul {
+	float: left;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+nav ul i{
+  display: inline-block;
+}
+ul li {
+	list-style: none;
+	margin-left: 62px;
+	margin-top: 27px;
+	font-size: 20px;
+}
+
+ul li a {
+	text-decoration: none;
+	color: #000000;
+	font-family: Arial;
+	font-weight: bold;
+	transition: 0.4s ease-in-out;
+}
+
+ul li a:hover {
+	color: #ff7200;
+}
+
+h1 {
+	font-family: lucida Handwriting, Cursive;
+	color: black;
+}
+
+.navbar {
+	overflow: hidden;
+	background-color: #38fca4;
+}
+
+.navbar a {
+	float: left;
+	font-size: 16px;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+.dropdown-content a {
+	float: none;
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	text-align: left;
+}
+
+.dropdown-content a:hover {
+	background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+i {
+	width: 100px;
+	font-family: Times New Roman;
+	text-align: center;
+	color: #ff7200;
+	font-size: 24px;
+	background-color: #fff;
+	border-radius: 7px;
+	margin: 2px;
+	padding: 8px;
+}
+table {
+  
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color: Aquamarine;  
+}

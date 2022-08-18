@@ -28,8 +28,7 @@ public class UserService {
 		return userRepository.findById(id);
 	}
 	public List<User> getAllUsers(){
-		List<User> listus =userRepository.findAll();
-		return listus;
+		return userRepository.findAll();
 	}
 	public User getnamepassword(String name,String password) {
 		return userRepository.findByNameAndPassword(name, password);
@@ -45,7 +44,7 @@ public class UserService {
 		List<Task> task = taskRepository.findByUserId(id);
 		Iterator<Task> iterator = task.iterator();
 		while(iterator.hasNext()) {
-			userTask.addTask((Task)iterator.next());
+			userTask.addTask(iterator.next());
 		}
 		return userTask;
 	}

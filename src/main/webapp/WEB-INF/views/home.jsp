@@ -3,126 +3,14 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>TODO Application</title>
-<style type="text/css">
-body {
-	background-image:
-		url("https://wallpapers.com/images/hd/plain-blue-glitch-r5ckwv91utiy3tjv.webp");
-	height: 768px;
-	width: 1366px;
-	background-position: center top;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-}
-
-.menu {
-	width: 400px;
-	float: left;
-	height: 70px;
-}
-
-ul {
-	float: left;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-nav ul i{
-  display: inline-block;
-}
-ul li {
-	list-style: none;
-	margin-left: 62px;
-	margin-top: 27px;
-	font-size: 20px;
-}
-
-ul li a {
-	text-decoration: none;
-	color: ##000000;
-	font-family: Arial;
-	font-weight: bold;
-	transition: 0.4s ease-in-out;
-}
-
-ul li a:hover {
-	color: #ff7200;
-}
-
-h1 {
-	font-family: lucida Handwriting, Cursive;
-	color: black;
-}
-
-.navbar {
-	overflow: hidden;
-	background-color: #38fca4;
-}
-
-.navbar a {
-	float: left;
-	font-size: 16px;
-	color: white;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
-}
-
-.dropdown-content {
-	display: none;
-	position: absolute;
-	background-color: #f9f9f9;
-	min-width: 160px;
-	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-	z-index: 1;
-}
-
-.dropdown-content a {
-	float: none;
-	color: black;
-	padding: 12px 16px;
-	text-decoration: none;
-	display: block;
-	text-align: left;
-}
-
-.dropdown-content a:hover {
-	background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
-	display: block;
-}
-
-i {
-	width: 100px;
-	font-family: Times New Roman;
-	text-align: center;
-	color: #ff7200;
-	font-size: 24px;
-	background-color: #fff;
-	border-radius: 7px;
-	margin: 2px;
-	padding: 8px;
-}
-table {
-  
-  border-collapse: collapse;
-  width: 100%;
-}
-
-th, td {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-tr:hover {background-color: Aquamarine;  /coral  /
-}
+<link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<style>
+<%@include file="/WEB-INF/css/home.css"%>
 </style>
 </head>
 <body>
@@ -130,7 +18,7 @@ tr:hover {background-color: Aquamarine;  /coral  /
 	<div class="menu">
 		<ul>
 			<div class="dropdown">
-				<i class="dropbtn"> User <i class="fa fa-caret-down"></i>
+				<i class="dropbtn"> User </i>
 				</i>
 				<div class="dropdown-content">
 					<a href="/userlist">List of User</a> 
@@ -155,22 +43,16 @@ tr:hover {background-color: Aquamarine;  /coral  /
 			</div>
 			<li></li>
 			<div class="dropdown">
-				<i class="dropbtn"> TaskStatus <i class="fa fa-caret-down"></i>
-				</i>
+				<i class="dropbtn"> TaskStatus </i>
 				<div class="dropdown-content">
-					<a href="/task/list">List of Task</a> <a href="/task/status">Completed
-						Task</a>
-
+					<a href="/task/list">List of Task</a> 
+					<a href="/task/status">Completed Task</a>
+					<a href="/task/highpriority">Fetch High Priority Task</a>
+					<a href="/task/mediumpriority">Fetch Medium Priority Task</a>
+					<a href="/task/lowpriority">Fetch Low Priority Task</a>
 				</div>
 			</div>
 			<li></li>
-			<div class="dropdown">
-				<i class="dropbtn"> Contact <i class="fa fa-caret-down"></i>
-				</i>
-				<div class="dropdown-content">
-					<a href="/contactindex">Contact</a>
-				</div>
-			</div>
 			<li></li>
 			<li></li>
 			<li></li>
@@ -203,9 +85,11 @@ tr:hover {background-color: Aquamarine;  /coral  /
 					<th>Completed Date</th>
 					<th>User ID</th>
 					<th>Status</th>
+					<th>Priority</th>
 					<th>Edit</th>
 					<th>Delete</th>
 					<th>Comment</th>
+					<th>CheckBox</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -219,13 +103,21 @@ tr:hover {background-color: Aquamarine;  /coral  /
 						<td>${task.dateCompleted}</td>
 						<td>${task.userId}</td>
 						<td>${task.status}</td>
+						<td id="red">${task.priority}</td>
 						<td><a href="/task/updatetask?taskid=${task.taskId}">Edit</a></td>
 						<td><a href="/task/deletetask?taskid=${task.taskId}">Delete</a></td>
 						<td><a href="/comment/addcomment?taskid=${task.taskId}">Comment</a></td>
+						<td><input type="checkbox" name="check" id="check" value="true" /></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
+	<script>
+	let text="High";
+	let result=text.fontcolor("red");
+	document.getElementById("red").innerHTML = result;
+	result = "<span style='color:red'>" + text + "</span>";
+	</script>	
 </body>
 </html>

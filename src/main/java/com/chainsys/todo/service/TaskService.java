@@ -1,21 +1,15 @@
 package com.chainsys.todo.service;
 
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-
 import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.chainsys.todo.dto.TaskCommentDTO;
 import com.chainsys.todo.model.Comments;
 import com.chainsys.todo.model.Task;
 import com.chainsys.todo.repository.CommentRepository;
 import com.chainsys.todo.repository.TaskRepository;
-
-
 @Service
 public class TaskService {
 	@Autowired
@@ -41,8 +35,7 @@ public class TaskService {
 	}
 
 	public List<Task> getallTask() {
-		List<Task> listTask = taskRepository.findAll();
-		return listTask;
+		return taskRepository.findAll();
 	}
 
 	public void deleteById(int id) {
@@ -56,7 +49,7 @@ public class TaskService {
 		List<Comments> comment = commentRepository.findByTaskId(id);
 		Iterator<Comments> iterator =comment.iterator();
 		while(iterator.hasNext()) {
-			dto.addComment((Comments)iterator.next());
+			dto.addComment(iterator.next());
 		}
 		return dto;
 	}

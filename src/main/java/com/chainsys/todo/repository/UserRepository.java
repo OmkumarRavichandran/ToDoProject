@@ -1,12 +1,9 @@
 package com.chainsys.todo.repository;
 
-import java.util.Collection;
 import java.util.List;
 
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-import com.chainsys.todo.model.Task;
 import com.chainsys.todo.model.User;
 
 public interface UserRepository extends CrudRepository<User, Integer>{
@@ -16,5 +13,4 @@ public interface UserRepository extends CrudRepository<User, Integer>{
 	List<User> findAll();
 	User findByNameAndPassword(String name , String password);
 	User deleteById(int userId);
-	
 }

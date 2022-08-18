@@ -7,32 +7,17 @@
 	<meta charset="ISO-8859-1">
 	<title>User List</title>
 	<style type="text/css">
-	body {
-		background-image:
-			url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6kes4oqn-17l2nTBcwLk13rQXWZOIqtnSAg&usqp=CAU");
-		height: 768px;
-		width: 1366px;
-		background-position: center;
-		background-repeat: no-repeat;
-		background-size: cover;
-		position: relative;
-	}
-	tr:hover {background-color: #999966;}
-	table, th, td {
-	  border: 1px solid black;
-	  border-collapse: collapse;
-	}
-	tr:nth-child(even) {
-	  background-color: rgba(255,0,0,0.3);
-	}
-	th:nth-child(even),td:nth-child(even) {
-	 background-color: rgba(192,0,192,0.3);
-	}
+	<%@include file="/WEB-INF/css/listtask.css"%>
 	</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	</head>
+	
 	<body>
 		<div id="table root" align="center">
-			<table style="width:103%;background-color:#ffe6f7;">
+			<table style="width:100%;background-color:#ffe6f7;">
+			<caption></caption>
 			<h1>Task List</h1>
 				<thead>
 					<tr>
@@ -62,15 +47,30 @@
 							<td>${task.dateModified}</td> 
 							<td>${task.dateCompleted}</td> 
 							<td>${task.userId}</td>
-							<td>${task.priority}</td> 
+							<td id="red">${task.priority}</td> 
 							<td>${task.status}</td> 
 							<td><a href="updatetask?taskid=${task.taskId}">Edit</a></td>
 							<td><a href="deletetask?taskid=${task.taskId}">Delete</a></td>
-							<td><a href="/comment/addcomment?taskid=${task.taskId}">Comment</a></td>
+							<td><a href="/comment/addcomment?taskid=${task.taskId}" target="_blank">Comment</a></td>
 							</tr>
 					</c:forEach>
 				</tbody>
 			</table>
+			<p>
+			<button class="btn" onclick="document.location='/index'">Back</button>
+		</p>
 		</div>
+		<div class="container">
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Add Comment</button>
+  <div id="demo" class="collapse">
+    <iframe src="/comment/addcomment"> </iframe>
+  </div>
+</div>
+	<script>
+	let text="High";
+	let result=text.fontcolor("red");
+	document.getElementById("red").innerHTML = result;
+	result = "<span style='color:red'>" + text + "</span>";
+	</script>	
 	</body>
 	</html>

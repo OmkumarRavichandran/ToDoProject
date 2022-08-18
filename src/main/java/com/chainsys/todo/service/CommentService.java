@@ -21,8 +21,7 @@ public class CommentService {
 		commentRepository.deleteById(id);
 	}
 	public List<Comments> getAllComments(){
-		List<Comments> listComments =commentRepository.findAll();
-		return listComments;
+		return commentRepository.findAll();
 	}
 	public Comments findById(int id) {
 		return commentRepository.findById(id);

@@ -38,32 +38,18 @@ public class UserController {
     }
 	@GetMapping("/userindex")
     public String userIndex(Model m) {
-		String message = "Hi";
-        m.addAttribute("message", message);
         return "userindex";
-    }
-	@GetMapping("/contactindex")
-    public String contactIndex(Model m) {
-		String message = "Hi";
-        m.addAttribute("message", message);
-        return "contactindex";
     }
 	@GetMapping("/taskindex")
     public String taskIndex(Model m) {
-		String message = "Hi";
-        m.addAttribute("message", message);
         return "taskindex";
     }
 	@GetMapping("/commentindex")
     public String commentIndex(Model m) {
-		String message = "Hi";
-        m.addAttribute("message", message);
         return "commentindex";
     }
 	@GetMapping("/taskstatusindex")
     public String taskstatusIndex(Model m) {
-		String message = "Hi";
-        m.addAttribute("message", message);
         return "taskstatus";
     }
 	
@@ -84,7 +70,7 @@ public class UserController {
 		if(errors.hasErrors()) {
 			return "add-user-form";
 		}
-		user = userService.save(user);
+		userService.save(user);
 		return "redirect:/todo";
 	}
 	@GetMapping("/getuserform")

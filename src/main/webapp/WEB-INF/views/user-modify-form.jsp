@@ -1,111 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>User Modify Form</title>
 <style type="text/css">
-body {
-	background-image:
-		url("https://wallpapers.com/images/hd/plain-blue-glitch-r5ckwv91utiy3tjv.webp");
-	height: 768px;
-	width: 1366px;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-}
-
-* {
-	box-sizing: border-box;
-}
-
-input[type=text], select, textarea {
-	width: 50%;
-	padding: 15px;
-	border: 1px solid #ccc;
-	border-radius: 8px;
-	resize: vertical;
-}
-
-label {
-	padding: 12px 12px 12px 0;
-	display: inline-block;
-}
-
-.container {
-	margin-top: 1%;
-	margin-left: 30%;
-	border-radius: 5px;
-	background-color: #ffff99;
-	padding: 30px;
-	width: 40%;
-	float: left;
-}
-
-.col-25 {
-	float: left;
-	width: 40%;
-	margin-top: 6px;
-	margin-left: 10px;
-}
-
-.col-75 {
-	float: left;
-	width: 55%;
-	margin-top: 6px;
-	align:center;
-}
-
-.row:after {
-	content: "";
-	display: table;
-	clear: both;
-	text-align: center;
-	width: 55%;
-}
-
-.btn {
-	display: inline-block;
-	padding: 5px 20px;
-	font-size: 18px;
-	cursor: pointer;
-	text-align: center;
-	text-decoration: none;
-	outline: none;
-	color: white;
-	background-color: #6bb6ff;
-	border: none;
-	border-radius: 10px;
-	box-shadow: 0 9px #1E90FF;
-	margin-left: 10px;
-	margin-top: 10px;
-	align: center;
-}
-
-.btn:hover {
-	background-color: #6bb6ff
-}
-
-.btn:active {
-	background-color: #9932CC;
-	box-shadow: 0 5px #666;
-	transform: translateY(4px);
-}
+<%@include file="/WEB-INF/css/usermodify.css"%>
 </style>
 </head>
 <body>
-   <div class="container" align="center">
-    <h3 align="center">Modify user</h3>
-    <br>
-    <form action="/updateuser" method="get" style="margin: 0;">
-       <div class="row" >
-        <label>Enter User ID</label>
-        </div>
-        <input type="text" placeholder="user id" name="userid" class="row"> 
-        <input type='submit' value="update" name="submit" class="btn">
-    </form>
-    </div>
+	<div class="container" align="center">
+		<h3 align="center">Modify user</h3>
+		<br>
+		<form action="/updateuser" method="get" style="margin: 0;">
+			<div class="row">
+				<label>Enter User ID</label>
+			</div>
+			<input type="text" placeholder="user id" name="userid" class="row">
+			<input type='submit' value="update" name="submit" class="btn">
+		</form>
+		<p>
+			<button class="btn" onclick="document.location='/index'">Back</button>
+		</p>
+	</div>
 </body>
 </html>
