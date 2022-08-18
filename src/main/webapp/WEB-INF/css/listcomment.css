@@ -29,7 +29,7 @@ th:nth-child(even), td:nth-child(even) {
 .table {
 	border: 2px;
 	width: 100%;
-	cellpadding: 2;
+	padding: 2px;
 }
 .btn {
 	display: inline-block;

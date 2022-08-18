@@ -103,7 +103,7 @@
 						<td>${task.dateCompleted}</td>
 						<td>${task.userId}</td>
 						<td>${task.status}</td>
-						<td id="red">${task.priority}</td>
+						<td class="red">${task.priority}</td>
 						<td><a href="/task/updatetask?taskid=${task.taskId}">Edit</a></td>
 						<td><a href="/task/deletetask?taskid=${task.taskId}">Delete</a></td>
 						<td><a href="/comment/addcomment?taskid=${task.taskId}">Comment</a></td>
@@ -114,10 +114,29 @@
 		</table>
 	</div>
 	<script>
-	let text="High";
+	function f_color(){
+		for (let i=0; i < document.getElementsByClassName('red').length; i++ ) {
+		if (document.getElementsByClassName('red')[i].innerHTML == 'High') {
+		document.getElementsByClassName('red')[i].style.backgroundColor = "Green";
+		}
+		
+	else if (document.getElementsByClassName('red')[i].innerHTML == 'Medium') {
+		document.getElementsByClassName('red')[i].style.backgroundColor = "red";
+		}
+	}
+}
+		f_color();
+
+/* 	let text="High";
 	let result=text.fontcolor("red");
 	document.getElementById("red").innerHTML = result;
-	result = "<span style='color:red'>" + text + "</span>";
+	result = "<span style='color:red'>" + text + "</span>"; */
+	
+/* 	let text1="High";
+	let result1=text1.fontcolor("orange");
+	document.getElementByClassName("red").innerHTML = result1;
+	result1 = "<span style='color:red'>" + text1 + "</span>"; */
+	
 	</script>	
 </body>
 </html>

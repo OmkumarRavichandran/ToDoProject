@@ -34,7 +34,7 @@ ul li {
 ul li a {
 	text-decoration: none;
 	color: #000000;
-	font-family: Arial;
+	font-family: fantasy;
 	font-weight: bold;
 	transition: 0.4s ease-in-out;
 }
@@ -90,7 +90,7 @@ h1 {
 
 em {
 	width: 100px;
-	font-family: Times New Roman;
+	font-family:fantasy;
 	text-align: center;
 	color: #ff7200;
 	font-size: 24px;
@@ -108,6 +108,9 @@ table {
   width: 100%;
   border:2px;
 }
+/* .red{
+	color: red;
+} */
 
 th, td {
   padding: 8px;
