@@ -36,6 +36,9 @@ tr:hover {background-color: #999966;}
 	box-shadow: 0 5px #666;
 	transform: translateY(4px);
 }
+h1{
+	text-align: center;
+}
 table{
 background-color: #cce6ff;
 }

@@ -8,7 +8,10 @@
 <meta charset="ISO-8859-1">
 <title>TODO Application</title>
 <link rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <style>
 <%@include file="/WEB-INF/css/home.css"%>
 </style>
@@ -20,7 +23,7 @@
 			<div class="dropdown">
 				<em class="dropbtn"> User </em>
 				<div class="dropdown-content">
-					<a href="/userlist">List of User</a> 
+					<!-- <a href="/userlist">List of User</a>  -->
 					<a href="/getuserform">Get User Details</a> 
 					<a href="/usermodifyform">Modify User</a> 
 					<a href="/deleteuserform">Delete User</a>
@@ -32,11 +35,7 @@
 				<em class="dropbtn"> Task <em class="fa fa-caret-down"></em>
 				</em>
 				<div class="dropdown-content">
-					<a href="/task/list">List of Task</a> 
 					<a href="/task/addtask">Add Task</a> 
-					<a href="/task/getTask">Get Task</a> 
-					<a href="/task/deleteTask">Delete Task</a> 
-					<a href="/task/updateTask">Modify Task</a> 
 					<a href="/task/getTaskcomments">Get Task Comments</a>
 				</div>
 			</div>
@@ -44,7 +43,6 @@
 			<div class="dropdown">
 				<em class="dropbtn"> TaskStatus </em>
 				<div class="dropdown-content">
-					<a href="/task/list">List of Task</a> 
 					<a href="/task/status">Completed Task</a>
 					<a href="/task/highpriority">Fetch High Priority Task</a>
 					<a href="/task/mediumpriority">Fetch Medium Priority Task</a>
@@ -73,8 +71,13 @@
 	</div>
 	<div></div>
 	<div id="form" style="text-align: center; margin-top: 12%;">
-		<table>
+		<table class="table">
 		<caption></caption>
+		<colgroup>
+                    <col span="15" style="background-color: #d9a8cf">
+                    <col span="4" style="background-color: white">
+                </colgroup>
+		
 			<thead>
 				<tr>
 					<th>Task id</th>
@@ -88,7 +91,7 @@
 					<th>Priority</th>
 					<th>Edit</th>
 					<th>Delete</th>
-					<th>Comment</th>
+					<th>View</th>
 					<th>CheckBox</th>
 				</tr>
 			</thead>
@@ -104,39 +107,37 @@
 						<td>${task.userId}</td>
 						<td>${task.status}</td>
 						<td class="red">${task.priority}</td>
-						<td><a href="/task/updatetask?taskid=${task.taskId}">Edit</a></td>
+						<td class="edit hover"><a href="/task/updatetask?taskid=${task.taskId}">Edit</a></td>
 						<td><a href="/task/deletetask?taskid=${task.taskId}">Delete</a></td>
-						<td><a href="/comment/addcomment?taskid=${task.taskId}">Comment</a></td>
+						<td><a href="/task/getTaskid?taskid=${task.taskId}">View</a></td>
 						<td><input type="checkbox" name="check" id="check" value="true" /></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
+	<div class="container">
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Add Comment</button>
+  <div id="demo" class="collapse">
+    <iframe src="/comment/addcomment" title="Frame"> </iframe>
+  </div>
+</div>
 	<script>
 	function f_color(){
 		for (let i=0; i < document.getElementsByClassName('red').length; i++ ) {
 		if (document.getElementsByClassName('red')[i].innerHTML == 'High') {
-		document.getElementsByClassName('red')[i].style.backgroundColor = "Green";
+		document.getElementsByClassName('red')[i].style.backgroundColor = "red";
 		}
 		
 	else if (document.getElementsByClassName('red')[i].innerHTML == 'Medium') {
-		document.getElementsByClassName('red')[i].style.backgroundColor = "red";
+		document.getElementsByClassName('red')[i].style.backgroundColor = "yellow";
+		}
+	else if (document.getElementsByClassName('red')[i].innerHTML == 'Low') {
+		document.getElementsByClassName('red')[i].style.backgroundColor = "green";
 		}
 	}
 }
-		f_color();
-
-/* 	let text="High";
-	let result=text.fontcolor("red");
-	document.getElementById("red").innerHTML = result;
-	result = "<span style='color:red'>" + text + "</span>"; */
-	
-/* 	let text1="High";
-	let result1=text1.fontcolor("orange");
-	document.getElementByClassName("red").innerHTML = result1;
-	result1 = "<span style='color:red'>" + text1 + "</span>"; */
-	
+		f_color();	
 	</script>	
 </body>
 </html>

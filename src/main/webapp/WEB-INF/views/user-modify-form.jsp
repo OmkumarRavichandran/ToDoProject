@@ -17,7 +17,7 @@
 			<div class="row">
 				<label>Enter User ID</label>
 			</div>
-			<input type="text" placeholder="user id" name="userid" class="row">
+			<input type="text" placeholder="Enter User id" name="userid"  pattern="^[0-9]+$" required="true" class="row">
 			<input type='submit' value="update" name="submit" class="btn">
 		</form>
 		<p>

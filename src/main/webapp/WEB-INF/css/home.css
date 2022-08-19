@@ -34,7 +34,7 @@ ul li {
 ul li a {
 	text-decoration: none;
 	color: #000000;
-	font-family: fantasy;
+	font-family: serif;
 	font-weight: bold;
 	transition: 0.4s ease-in-out;
 }
@@ -90,11 +90,11 @@ h1 {
 
 em {
 	width: 100px;
-	font-family:fantasy;
+	font-family:serif;
 	text-align: center;
-	color: #ff7200;
+	color: #f7f5f5;
 	font-size: 24px;
-	background-color: #fff;
+	background-color: #d12587;
 	border-radius: 7px;
 	margin: 2px;
 	padding: 8px;
@@ -108,9 +108,22 @@ table {
   width: 100%;
   border:2px;
 }
-/* .red{
-	color: red;
-} */
+a:link, a:visited {
+  background-color: #e30753;
+  color: white;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+}
+
+a:hover, a:active {
+  background-color: white;
+  color: black;
+}
+iframe {
+	width: 900px;
+	height: 400px;
+}
 
 th, td {
   padding: 8px;

@@ -13,10 +13,9 @@
 </style>
 </head>
 <body>
+<h1>List of Users</h1>
 	<div>
-		<table class="table">
-			<caption></caption>
-			<h1>List of Users</h1>
+		<table class="table" >
 			<caption></caption>
 			<thead>
 				<tr>

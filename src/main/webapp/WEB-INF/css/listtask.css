@@ -21,11 +21,59 @@ div {
 	text-align: center;
 }
 
-tr:hover {
-	background-color: #999966;
+tr:hover {background-color:#ffff80;}
+table, th, td{
+border: 1px solid black;
+height: 14px;
+}
+table {
+    margin-top: 33px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    background-color: #ff00ff;
 }
 
-table, th, td {
-	border: 1px solid black;
-	border-collapse: collapse;
+td, th {
+    text-align: left;
+    padding: 10px;
+}
+
+a:link, a:visited {
+  background-color: #e30753;
+  color: white;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+}
+
+a:hover, a:active {
+  background-color: white;
+  color: black;
+}
+.btn {
+	display: inline-block;
+	padding: 10px 20px;
+	font-size: 18px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+	color: white;
+	background-color: #6bb6ff;
+	border: none;
+	border-radius: 10px;
+	box-shadow: 0 9px #1E90FF;
+	margin-left: 3px;
+	margin-top: 10px;
+}
+
+.btn:hover {
+	background-color: #6bb6ff
+}
+
+.btn:active {
+	background-color: #9932CC;
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
 }

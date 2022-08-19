@@ -12,7 +12,7 @@ body {
 	margin-top: 1%;
 	margin-left: 5%;
 	border-radius: 5px;
-	background-color: #ffff99;
+	background-color: #ffcc80;
 	padding: 30px;
 	width: 70%;
 	float: left;
@@ -29,18 +29,24 @@ body {
 	background-color: #6bb6ff;
 	border: none;
 	border-radius: 10px;
-	box-shadow: 0 9px #1E90FF;
+
 	margin-left: 300px;
 	margin-top: 10px;
 }
-tr:hover {background-color: #999966;}
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
+tr:hover {background-color:#ffff80;}
+table, th, td{
+border: 1px solid black;
+height: 14px;
 }
-tr:nth-child(even) {
-  background-color: rgba(255,0,0,0.3);
+table {
+    margin-top: 33px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    background-color: #ccffee;
 }
-th:nth-child(even),td:nth-child(even) {
- background-color: rgba(192,0,192,0.3);
+
+td, th {
+    text-align: left;
+    padding: 10px;
 }

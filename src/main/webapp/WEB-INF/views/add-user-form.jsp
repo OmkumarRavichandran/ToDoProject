@@ -132,6 +132,9 @@
 		</div>
 			
 		</form:form>
+		<div class="result">
+		${result}
+		</div>
 		<p>
 			<button  class="btn "onclick="document.location='/todo'">Back</button>
 		</p>

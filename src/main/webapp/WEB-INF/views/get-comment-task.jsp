@@ -18,7 +18,8 @@
         <label>Enter Task ID</label> 
         </div>
         <input type="text" placeholder="Task id"
-            name="id" class="row"> <input type='submit' value="Get" name="submit" class="btn">
+            name="id"  pattern="^[0-9]+$" required="true" class="row"> 
+            <input type='submit' value="Get" name="submit" class="btn">
     </form>
     <p>
 			<button class="btn" onclick="document.location='/index'">Back</button>

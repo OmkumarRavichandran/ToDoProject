@@ -13,6 +13,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 @Entity
@@ -24,16 +28,16 @@ public class Task {
 	@Column(name = "TASKID")
 	private int taskId;
 	@Column(name = "TASKTITLE")
-	@Pattern(regexp = "^[A-Za-z\s]*$", message = "*Enter valid Task Title ")
+	@NotBlank(message = "*Task Title is required")
 	private String taskTitle;
 	@Column(name = "DESCRIPTION")
-	@Pattern(regexp = "^[A-Za-z\s]*$", message = "*Enter valid Description ")
 	@Size(min=3, max=30, message="Enter valid Description")
 	private String description;
 	@Column(name = "DATECREATED")
 	private String dateCreated;
 	
 	@Column(name="DATEDUE")
+	@Future
 	private Date dueDate;
 	
 	public Date getDueDate() {
@@ -43,8 +47,10 @@ public class Task {
 		this.dueDate = dueDate;
 	}
 	@Column(name = "DATEMODIFIED")
+	@Past
 	private Date dateModified;
 	@Column(name = "DATECOMPLETED")
+	@Future
 	private Date dateCompleted;
 	@Column(name = "STATUS")
 	private String status;

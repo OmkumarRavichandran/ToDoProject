@@ -17,7 +17,7 @@
 		<div class="row">
 		<label>Enter Task ID</label>
 		</div>
-		 <input type="text" placeholder="Task id" name="taskid" class="row"> 
+		 <input type="text" placeholder="Task id" name="taskid"  pattern="^[0-9]+$" required="true" class="row"> 
 		<input type='submit' value="Delete" name="submit" class="btn">
 	</form>
 		<p>

@@ -15,10 +15,10 @@
 		<br>
 		<form action="getusertask" method="get" style="margin: 0;">
 			<div class="row">
-			<label>Enter Task ID</label> 
+			<label>Enter User ID</label> 
 			</div>
 			<input type="text" placeholder="User id"
-				name="id" class="row"> 
+				name="id"  pattern="^[0-9]+$" required="true" class="row"> 
 				<input type='submit' value="Get"
 				name="submit" class="btn">
 		</form>

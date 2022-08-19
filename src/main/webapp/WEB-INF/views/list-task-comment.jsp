@@ -100,6 +100,10 @@
 	<div class="container">
 		<table>
 		<caption></caption>
+		<colgroup>
+                    <col span="15" style="background-color: #d9a8cf">
+                    <col span="4" style="background-color: white">
+                </colgroup>
 			<thead>
 				<tr>
 					<th>Task id</th>

@@ -28,7 +28,6 @@ public class Comments {
     @SequenceGenerator(name = "toid", sequenceName = "toid",  allocationSize = 1)
 	private int commentId;
 	@Column(name = "comments")
-	@NotBlank(message ="not be empty")
 	@NotNull(message ="address may not be null")
 	private String comments;
 	@Column(name = "datetime")

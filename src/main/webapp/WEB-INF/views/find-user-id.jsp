@@ -21,7 +21,7 @@
 					<label for="userId">User id</label>
 				</div>
 				<div class="col-75">
-					<form:input path="userId" />
+					<form:input path="userId" readonly="true"/>
 				</div>
 			</div>
 
@@ -30,7 +30,7 @@
 					<label for="name">Name</label>
 				</div>
 				<div class="col-75">
-					<form:input path="name" />
+					<form:input path="name" readonly="true"/>
 				</div>
 			</div>
 
@@ -39,7 +39,7 @@
 					<label for="password">Password</label>
 				</div>
 				<div class="col-75">
-					<form:input path="password" />
+					<form:input path="password" readonly="true"/>
 				</div>
 			</div>
 
@@ -48,7 +48,7 @@
 					<label for="email">Email</label>
 				</div>
 				<div class="col-75">
-					<form:input path="email" />
+					<form:input path="email" readonly="true"/>
 				</div>
 			</div>
 
@@ -57,7 +57,7 @@
 					<label for="mobileNo">Mobile Number</label>
 				</div>
 				<div class="col-75">
-					<form:input path="mobileNo" />
+					<form:input path="mobileNo" readonly="true"/>
 				</div>
 			</div>
 
@@ -66,7 +66,7 @@
 					<label for="gender">Gender</label>
 				</div>
 				<div class="col-75">
-					<form:input path="gender" />
+					<form:input path="gender" readonly="true"/>
 				</div>
 			</div>
 
@@ -75,7 +75,7 @@
 					<label for="address">Address</label>
 				</div>
 				<div class="col-75">
-					<form:input path="address" />
+					<form:input path="address" readonly="true"/>
 				</div>
 			</div>
 
@@ -84,7 +84,7 @@
 					<label for="state">State</label>
 				</div>
 				<div class="col-75">
-					<form:input path="state" />
+					<form:input path="state" readonly="true"/>
 				</div>
 			</div>
 
@@ -93,7 +93,7 @@
 					<label for="city">City</label>
 				</div>
 				<div class="col-75">
-					<form:input path="city" />
+					<form:input path="city" readonly="true"/>
 				</div>
 			</div>
 
@@ -102,7 +102,7 @@
 					<label for="pincode">Pin Code</label>
 				</div>
 				<div class="col-75">
-					<form:input path="pincode" />
+					<form:input path="pincode" readonly="true"/>
 				</div>
 			</div>
 		</form:form>

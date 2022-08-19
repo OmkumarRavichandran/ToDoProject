@@ -17,8 +17,8 @@
 			<div class="row">
 				<label>Enter User ID</label>
 			</div>
-			<input type="text" placeholder="user id" name="userid" class="row"> <input
-				type='submit' value="Delete" name="submit" class="btn">
+			<input type="text" placeholder="user id" name="userid"  pattern="^[0-9]+$" required="true" class="row"> 
+			<input type='submit' value="Delete" name="submit" class="btn">
 		</form>
 		<p>
 			<button class="btn" onclick="document.location='/index'">Back</button>

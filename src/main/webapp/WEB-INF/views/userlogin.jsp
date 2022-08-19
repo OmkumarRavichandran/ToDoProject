@@ -10,6 +10,9 @@
 <style>
 <%@include file="/WEB-INF/css/userlogin.css"%>
 </style>
+<script>
+<%@include file="/WEB-INF/script/login.js"%>
+</script>
 </head>
 <body>
 	<div class="main">
@@ -37,10 +40,10 @@
 
 			<div class="form">
 				<form:form action="checkuserlogin" method="post"
-					modelAttribute="user">
+					modelAttribute="user" name="myForm">
 					<h2>Login Here</h2>
-					<input type="text" name="name" placeholder="Enter Name Here">
-					<input type="password" name="password"
+					<input type="text" name="name" onblur="nameCheck();" placeholder="Enter Name Here">
+					<input type="password" name="password" onblur="passwordCheck();"
 						placeholder="Enter Password Here">
 
 					<button type="submit" class="btnn">Login</button>

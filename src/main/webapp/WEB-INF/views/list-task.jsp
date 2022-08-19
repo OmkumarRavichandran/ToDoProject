@@ -6,6 +6,8 @@
 	<head>
 	<meta charset="ISO-8859-1">
 	<title>User List</title>
+	<link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<style type="text/css">
 	<%@include file="/WEB-INF/css/listtask.css"%>
 	</style>
@@ -15,7 +17,11 @@
 	</head>
 	<body>
 		<div>
-			<table style="width:100%;background-color:#ffe6f7;">
+			<table class="table">
+			<colgroup>
+                    <col span="15" style="background-color: #80ffff">
+                    <col span="4" style="background-color: white">
+                </colgroup>
 			<caption></caption>
 			<h2>Task List</h2>
 				<thead>
@@ -32,7 +38,6 @@
 						<th>Status</th>
 						<th>Edit</th>
 						<th>Delete</th>
-						<th>Comment</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -46,11 +51,10 @@
 							<td>${task.dateModified}</td> 
 							<td>${task.dateCompleted}</td> 
 							<td>${task.userId}</td>
-							<td id="red">${task.priority}</td> 
+							<td class="red">${task.priority}</td> 
 							<td>${task.status}</td> 
 							<td><a href="updatetask?taskid=${task.taskId}">Edit</a></td>
 							<td><a href="deletetask?taskid=${task.taskId}">Delete</a></td>
-							<td><a href="/comment/addcomment?taskid=${task.taskId}" target="_blank">Comment</a></td>
 							</tr>
 					</c:forEach>
 				</tbody>
@@ -64,12 +68,24 @@
   <div id="demo" class="collapse">
     <iframe src="/comment/addcomment" title="Frame"> </iframe>
   </div>
-</div>
-	<script>
-	let text="High";
-	let result=text.fontcolor("red");
-	document.getElementById("red").innerHTML = result;
-	result = "<span style='color:red'>" + text + "</span>";
+</div>	
+<script>
+	function f_color(){
+		for (let i=0; i < document.getElementsByClassName('red').length; i++ ) {
+		if (document.getElementsByClassName('red')[i].innerHTML == 'High') {
+		document.getElementsByClassName('red')[i].style.backgroundColor = "red";
+		}
+		
+	else if (document.getElementsByClassName('red')[i].innerHTML == 'Medium') {
+		document.getElementsByClassName('red')[i].style.backgroundColor = "yellow";
+		}
+	else if (document.getElementsByClassName('red')[i].innerHTML == 'Low') {
+		document.getElementsByClassName('red')[i].style.backgroundColor = "green";
+		}
+	}
+}
+		f_color();	
 	</script>	
 	</body>
+	
 	</html>

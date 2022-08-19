@@ -6,13 +6,13 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Add User</title>
+<title>Get Task</title>
 <style>
 <%@include file="/WEB-INF/css/findtask.css"%>
 </style>
 </head>
 <body>
-		<div id="container">
+		<div class="container">
 		<h1 class="but">Get Task</h1>
 			<form:form action="add" method="get" modelAttribute="gettask">
 				<div class="row">

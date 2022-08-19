@@ -29,7 +29,6 @@ public class User {
 	@Column(name="name")
 	@Size(max = 20, min = 3, message = "*Name length should be 3 to 20")
 	@NotBlank(message = "*StaffName is required")
-	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid name ")
 	private String name;
 	@Column(name="email")
 	@Email(message = "*Invalid Email", regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}")
@@ -48,11 +47,9 @@ public class User {
 	private String address;
 	@Column(name="state")
 	@NotBlank(message = "*State is required")
-	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid State")
 	private String state;
 	@Column(name="city")
 	@NotBlank(message = "*City is required")
-	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid City")
 	private String city;
 	@Column(name="pincode")
 	@Digits(message = "*Invalid Pincode", integer = 6, fraction = 0)

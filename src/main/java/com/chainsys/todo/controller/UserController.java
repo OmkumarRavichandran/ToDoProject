@@ -65,12 +65,16 @@ public class UserController {
 		return "add-user-form";
 	}
 	@PostMapping("/add")
-	public String addUser(@Valid @ModelAttribute("adduser")User user,Errors errors) {
-		if(errors.hasErrors()) {
-			return "add-user-form";
-		}
-		userService.save(user);
-		return "redirect:/todo";
+	public String addUser(@ModelAttribute("adduser")User user,Errors errors,Model model) {
+		try {
+				userService.save(user);
+				model.addAttribute("result","Registration completed Successfully");
+				return "add-user-form";
+			}
+			catch(Exception er) {
+				model.addAttribute("message","This Name is already exist");
+				return "add-user-form";
+			}
 	}
 	@GetMapping("/getuserform")
 	public String getUserForm() {
