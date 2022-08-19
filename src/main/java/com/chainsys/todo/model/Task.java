@@ -47,7 +47,6 @@ public class Task {
 		this.dueDate = dueDate;
 	}
 	@Column(name = "DATEMODIFIED")
-	@Past
 	private Date dateModified;
 	@Column(name = "DATECOMPLETED")
 	@Future

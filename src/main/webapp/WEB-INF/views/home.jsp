@@ -23,7 +23,6 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 			<div class="dropdown">
 				<em class="dropbtn"> User </em>
 				<div class="dropdown-content">
-					<!-- <a href="/userlist">List of User</a>  -->
 					<a href="/getuserform">Get User Details</a> 
 					<a href="/usermodifyform">Modify User</a> 
 					<a href="/deleteuserform">Delete User</a>

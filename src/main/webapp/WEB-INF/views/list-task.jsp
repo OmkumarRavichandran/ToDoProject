@@ -18,11 +18,11 @@
 	<body>
 		<div>
 			<table class="table">
+			<caption></caption>
 			<colgroup>
                     <col span="15" style="background-color: #80ffff">
                     <col span="4" style="background-color: white">
                 </colgroup>
-			<caption></caption>
 			<h2>Task List</h2>
 				<thead>
 					<tr>

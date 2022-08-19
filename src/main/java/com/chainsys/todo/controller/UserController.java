@@ -1,9 +1,6 @@
 package com.chainsys.todo.controller;
 
 import java.util.List;
-
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +24,9 @@ public class UserController {
 	UserService userService;
 	@Autowired
 	TaskService taskService;
+	
+	@SuppressWarnings("unused")
+	private static final String ADDUSER = "add-user-form"; 
 	
 	@GetMapping("/index")
     public String webAppp(Model model) {
@@ -62,18 +62,18 @@ public class UserController {
 	public String showAddUser(Model model) {
 		User user = new User();
 		model.addAttribute("adduser", user);
-		return "add-user-form";
+		return "ADDUSER";
 	}
 	@PostMapping("/add")
 	public String addUser(@ModelAttribute("adduser")User user,Errors errors,Model model) {
 		try {
 				userService.save(user);
 				model.addAttribute("result","Registration completed Successfully");
-				return "add-user-form";
+				return "ADDUSER";
 			}
 			catch(Exception er) {
 				model.addAttribute("message","This Name is already exist");
-				return "add-user-form";
+				return "ADDUSER";
 			}
 	}
 	@GetMapping("/getuserform")

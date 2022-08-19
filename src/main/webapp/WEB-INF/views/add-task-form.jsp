@@ -65,7 +65,7 @@
 					<label for="dueDate">Due Date</label>
 					</div>
 					<div class="col=75">
-						<form:input path="dueDate" type="date" />
+						<form:input path="dueDate" type="date" min="2022-08-19"/>
 					</div>
 				</div>
 				

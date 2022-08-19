@@ -25,37 +25,41 @@ public class TaskController {
 	@Autowired
 	TaskService taskService;
 
+	private static final String LIST = "list-task"; 
+	
+	private static final String TASKLIST = "redirect:/task/list"; 
+	
 	@GetMapping("/list")
 	public String getAllUsers(Model model) {
 		List<Task> tasklist = taskService.getallTask();
 		model.addAttribute("alltask", tasklist);
-		return "list-task";
+		return LIST;
 	}
 
 	@GetMapping("/status")
 	public String getAllStatus(Model model) {
 		List<Task> taskStatus = taskService.taskGetByStatus("done");
 		model.addAttribute("alltask", taskStatus);
-		return "list-task";
+		return LIST;
 	}
 	
 	@GetMapping("/highpriority")
 	public String getAllPriority(Model model) {
 		List<Task> taskPriority = taskService.taskGetByPriority("High");
 		model.addAttribute("alltask", taskPriority);
-		return "list-task";
+		return LIST;
 	}
 	@GetMapping("/mediumpriority")
 	public String getAllMediumPriority(Model model) {
 		List<Task> taskPriority = taskService.taskGetByPriority("Medium");
 		model.addAttribute("alltask", taskPriority);
-		return "list-task";
+		return LIST;
 	}
 	@GetMapping("/lowpriority")
 	public String getAllLowPriority(Model model) {
 		List<Task> taskPriority = taskService.taskGetByPriority("Low");
 		model.addAttribute("alltask", taskPriority);
-		return "list-task";
+		return LIST;
 	}
 	
 	@GetMapping("/addtask")
@@ -72,7 +76,7 @@ public class TaskController {
 		}
 		task.setDateCreated();
 		taskService.save(task);
-		return "redirect:/task/list";
+		return TASKLIST;
 	}
 
 	@GetMapping("/getTask")
@@ -98,7 +102,7 @@ public class TaskController {
 	@GetMapping("/deletetask")
 	public String deleteTask(@RequestParam("taskid") int id) {
 		taskService.deleteById(id);
-		return "redirect:/task/list";
+		return TASKLIST;
 	}
 
 	@GetMapping("/updateTask")
@@ -120,7 +124,7 @@ public class TaskController {
 		}
 		task.setDateCreated();
 		taskService.save(task);
-		return "redirect:/task/list";
+		return TASKLIST;
 	}
 
 	@GetMapping("/getTaskcomments")
