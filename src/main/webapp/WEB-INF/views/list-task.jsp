@@ -5,7 +5,7 @@
 	<html lang="en">
 	<head>
 	<meta charset="ISO-8859-1">
-	<title>User List</title>
+	<title>Task List</title>
 	<link rel="stylesheet"
     href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<style type="text/css">
@@ -23,7 +23,11 @@
                     <col span="15" style="background-color: #80ffff">
                     <col span="4" style="background-color: white">
                 </colgroup>
+                <p>
+			<button class="but" onclick="document.location='/index'">Back</button>
+		</p>
 			<h2>Task List</h2>
+			
 				<thead>
 					<tr>
 						<th>Task id</th>
@@ -59,9 +63,7 @@
 					</c:forEach>
 				</tbody>
 			</table>
-			<p>
-			<button class="btn" onclick="document.location='/index'">Back</button>
-		</p>
+			
 		</div>
 		<div class="container">
   <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Add Comment</button>

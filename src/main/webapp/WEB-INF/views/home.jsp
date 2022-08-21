@@ -17,25 +17,17 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </style>
 </head>
 <body>
-	<h1>TODO Application</h1>
+	<h1 class="glow">TODO Application</h1>
 	<div class="menu">
 		<ul>
 			<div class="dropdown">
 				<em class="dropbtn"> User </em>
 				<div class="dropdown-content">
+					<a href="/userlist">List of User</a> 
 					<a href="/getuserform">Get User Details</a> 
 					<a href="/usermodifyform">Modify User</a> 
 					<a href="/deleteuserform">Delete User</a>
 					<a href="/getusertaskform">Get User Task Details</a>
-				</div>
-			</div>
-			<li></li>
-			<div class="dropdown">
-				<em class="dropbtn"> Task <em class="fa fa-caret-down"></em>
-				</em>
-				<div class="dropdown-content">
-					<a href="/task/addtask">Add Task</a> 
-					<a href="/task/getTaskcomments">Get Task Comments</a>
 				</div>
 			</div>
 			<li></li>
@@ -59,6 +51,9 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 			<li></li>
 			<li></li>
 			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
 			<div class="dropdown">
 				<em class="dropbtn"> Logout<em class="fa fa-caret-down"></em>
 				</em>
@@ -66,6 +61,9 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 					<a href="/todo">Logout</a>
 				</div>
 			</div>
+		</ul>
+		<ul>
+		<li><button  class="but "onclick="document.location='/task/addtask'">Add Task</button></li>
 		</ul>
 	</div>
 	<div></div>
@@ -79,7 +77,7 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 		
 			<thead>
 				<tr>
-					<th>Task id</th>
+					<th>Task ID</th>
 					<th>Task Title</th>
 					<th>Description</th>
 					<th>Created Date</th>
@@ -91,7 +89,8 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 					<th>Edit</th>
 					<th>Delete</th>
 					<th>View</th>
-					<th>CheckBox</th>
+					<th>Task Comments</th>
+					<th>Checkbox</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -109,6 +108,8 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 						<td class="edit hover"><a href="/task/updatetask?taskid=${task.taskId}">Edit</a></td>
 						<td><a href="/task/deletetask?taskid=${task.taskId}">Delete</a></td>
 						<td><a href="/task/getTaskid?taskid=${task.taskId}">View</a></td>
+						<td><a href="/task/gettaskcomment?id=${task.taskId}">Task Comments</a></td>
+						
 						<td><input type="checkbox" name="check" id="check" value="true" /></td>
 					</tr>
 				</c:forEach>

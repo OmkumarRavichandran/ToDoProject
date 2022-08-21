@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Add User</title>
+<title>Add Task</title>
 <style>
 <%@include file="/WEB-INF/css/addtask.css"%>
 </style>
@@ -16,17 +16,6 @@
 		<h1 class="button">Add Task</h1>
 			<form:form action="add" method="post" modelAttribute="addtask">
 			
-				<div class="row">
-				<div class="col-25">
-					<label for="taskId">Task ID</label>
-					</div>
-					<div class="col-75">
-						<form:input path="taskId" placeholder="Task ID" />
-				</div>
-				<form:errors path="taskId" class="text-danger" />
-				</div>
-				
-				
 				<div class="row">
 				<div class="col-25">
 					<label for="taskTitle">Task title</label>
@@ -125,7 +114,7 @@
 				</div>
 				<p>
 			<button  class="btn "onclick="document.location='/index'">Back</button>
-		</p>
+				</p>
 			</form:form>
 			
 		</div>

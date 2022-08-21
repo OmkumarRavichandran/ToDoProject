@@ -62,18 +62,18 @@ public class UserController {
 	public String showAddUser(Model model) {
 		User user = new User();
 		model.addAttribute("adduser", user);
-		return "ADDUSER";
+		return ADDUSER;
 	}
 	@PostMapping("/add")
 	public String addUser(@ModelAttribute("adduser")User user,Errors errors,Model model) {
 		try {
 				userService.save(user);
 				model.addAttribute("result","Registration completed Successfully");
-				return "ADDUSER";
+				return ADDUSER;
 			}
 			catch(Exception er) {
 				model.addAttribute("message","This Name is already exist");
-				return "ADDUSER";
+				return ADDUSER;
 			}
 	}
 	@GetMapping("/getuserform")

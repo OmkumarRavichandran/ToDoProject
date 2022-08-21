@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -52,10 +52,11 @@
 					<th>Task id</th>
 					<th>Task Title</th>
 					<th>Description</th>
-					<th style="width:70%">Created Date</th>
+					<th style="width:50%">Created Date</th>
 					<th style="width:100%">Due Date</th>
 					<th style="width:70%">Modified Date</th>
 					<th style="width:70%">Completed Date</th>
+					<th>Priority</th>
 					<th>User ID</th>
 					<th>Status</th>
 				</tr>
@@ -70,6 +71,7 @@
 						<td>${task.dueDate}</td> 
 						<td>${task.dateModified}</td> 
 						<td>${task.dateCompleted}</td> 
+						<td class="red">${task.priority}</td> 
 						<td>${task.userId}</td> 
 						<td>${task.status}</td> 
 						</tr>
@@ -80,5 +82,22 @@
 			<button class="btn" onclick="document.location='/index'">Back</button>
 		</p>
 	</div>
+	<script>
+	function f_color(){
+		for (let i=0; i < document.getElementsByClassName('red').length; i++ ) {
+		if (document.getElementsByClassName('red')[i].innerHTML == 'High') {
+		document.getElementsByClassName('red')[i].style.backgroundColor = "red";
+		}
+		
+	else if (document.getElementsByClassName('red')[i].innerHTML == 'Medium') {
+		document.getElementsByClassName('red')[i].style.backgroundColor = "yellow";
+		}
+	else if (document.getElementsByClassName('red')[i].innerHTML == 'Low') {
+		document.getElementsByClassName('red')[i].style.backgroundColor = "green";
+		}
+	}
+}
+		f_color();	
+	</script>	
 </body>
 </html>
