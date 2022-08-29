@@ -51,7 +51,6 @@ public class User {
 	@NotBlank(message = "*City is required")
 	private String city;
 	@Column(name="pincode")
-	@Digits(message = "*Invalid Pincode", integer = 6, fraction = 0)
 	private int pincode;
 	
 	public String getName() {

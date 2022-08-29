@@ -39,7 +39,7 @@
 					<label for="description">description</label>
 					</div>
 					<div class="col-75">
-						<form:input path="description" />
+						<form:input path="description" readonly="true" />
 					</div>
 				</div>
 				
@@ -48,7 +48,7 @@
 					<label for="dateCreated">dateCreated</label>
 					</div>
 					<div class="col-75">
-						<form:input path="dateCreated" />
+						<form:input path="dateCreated" readonly="true"/>
 					</div>
 				</div>
 				
@@ -57,7 +57,7 @@
 					<label for="dueDate">Due Date</label>
 					</div>
 					<div class="col-75">
-						<form:input path="dueDate" />
+						<form:input path="dueDate" readonly="true"/>
 					</div>
 				</div>
 				
@@ -66,7 +66,7 @@
 					<label for="dateModified">Date Modified</label>
 					</div>
 					<div class="col-75">
-						<form:input path="dateModified" />
+						<form:input path="dateModified" readonly="true"/>
 					</div>
 				</div>
 				
@@ -75,7 +75,7 @@
 					<label for="dateCompleted">Date Completed</label>
 					</div>
 					<div class="col-75">
-						<form:input path="dateCompleted" />
+						<form:input path="dateCompleted" readonly="true"/>
 					</div>
 				</div>
 				
@@ -84,7 +84,7 @@
 					<label for="userId">User id</label>
 					</div>
 					<div class="col-75">
-						<form:input path="userId" />
+						<form:input path="userId" readonly="true"/>
 					</div>
 				</div>
 				
@@ -93,7 +93,7 @@
 					<label for="priority">Priority</label>
 					</div>
 					<div class="col-75">
-						<form:input path="priority" />
+						<form:input path="priority" readonly="true"/>
 					</div>
 				</div>
 				
@@ -102,7 +102,7 @@
 					<label for="Status">Status</label>
 					</div>
 					<div class="col-75">
-						<form:input path="status" />
+						<form:input path="status" readonly="true"/>
 					</div>
 				</div>
 				<div class="row">
@@ -110,7 +110,7 @@
 					<label for="remainingDays">remainingDays</label>
 					</div>
 					<div class="col-75">
-						<form:input path="remainingDays" />
+						<form:input path="remainingDays" readonly="true"/>
 					</div>
 				</div>
 		

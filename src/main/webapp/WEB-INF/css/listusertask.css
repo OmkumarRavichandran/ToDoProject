@@ -1,12 +1,27 @@
 body {
 	background-image:
 		url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6kes4oqn-17l2nTBcwLk13rQXWZOIqtnSAg&usqp=CAU");
-	height: 768px;
+	height: 988px;
 	width: 1366px;
-	background-position: center;
+	background-position: center top;
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: relative;
+}
+a:link, a:visited {
+  background-color: #e30753;
+  color: white;
+  padding: 5px 5.5px;
+  text-align: center;
+  text-decoration: none;
+}
+h1{
+	text-align: center;
+}
+
+a:hover, a:active {
+  background-color: white;
+  color: black;
 }
 .container {
 	margin-top: 1%;
@@ -14,7 +29,7 @@ body {
 	border-radius: 5px;
 	background-color: #ffcc80;
 	padding: 30px;
-	width: 70%;
+	width: 88%;
 	float: left;
 }
 .btn {
@@ -49,4 +64,13 @@ table {
 td, th {
     text-align: left;
     padding: 10px;
+}
+iframe {
+	width: 1000px;
+	height: 800px;
+}
+.search{
+	width: 273px;
+    height: 33px;
+    margin-left: 30px;
 }

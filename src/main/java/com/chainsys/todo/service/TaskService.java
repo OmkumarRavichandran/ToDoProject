@@ -17,15 +17,14 @@ public class TaskService {
 	@Autowired
 	private CommentRepository commentRepository;
 
-	public List<Task> taskGetByStatus(String status){
-		return taskRepository.getTaskIdByStatus(status);
+	public List<Task> taskGetByStatus(String status,int userId){
+		return taskRepository.findByStatusAndUserId(status,userId);
 	}
 	
-	public List<Task> taskGetByPriority(String priority){
-		return taskRepository.getTaskIdByPriority(priority);
+	public List<Task> taskGetByPriority(String priority,int userId){
+		return taskRepository.findByPriorityAndUserId(priority,userId);
 	}
-	
-	
+
 	public Task findById(int id) {
 		return taskRepository.findById(id);
 	}
@@ -34,12 +33,15 @@ public class TaskService {
 		return taskRepository.save(task);
 	}
 
-	public List<Task> getallTask() {
-		return taskRepository.findAll();
+	public List<Task> getallTask(int id) {
+		return taskRepository.findByUserId(id);
 	}
 
 	public void deleteById(int id) {
 		taskRepository.deleteById(id);
+	}
+	public List<Task> findByuserId(int id) {
+		return taskRepository.findByUserId(id);
 	}
 	
 	public TaskCommentDTO getTaskComment(int id) {
@@ -62,5 +64,8 @@ public class TaskService {
 		for(int i=0;i<count;i++) {
 			commentRepository.save(commentList.get(i));
 		}
+	}
+	public List<Task> findDropDownTaskID(int taskId){
+		return taskRepository.findByUserId(taskId);
 	}
 }

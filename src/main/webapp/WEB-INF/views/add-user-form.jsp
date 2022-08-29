@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -14,6 +13,9 @@
 </head>
 <body>
 		<div class="container">
+		<p>
+			<button  class="btnn "onclick="document.location='/todo'">Back</button>
+		</p>
 		<h2>Sign Up</h2>
 			<form:form action="add" method="post" modelAttribute="adduser">
 
@@ -129,15 +131,13 @@
 		<div class="row">
 			<form:button class="btn">Add New</form:button>
 		
-		</div>
-			
-		</form:form>
-		<div class="result">
+		
+			<div class="result">
 		${result}
+			${Error	}
 		</div>
-		<p>
-			<button  class="btn "onclick="document.location='/todo'">Back</button>
-		</p>
+		</div>
+		</form:form>
 		</div>
 </body>
 </html>

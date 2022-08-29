@@ -45,7 +45,7 @@
 					<label for="dateModified">Date Modified</label>
 					</div>
 					<div class="col-75">
-						<form:input path="dateModified" type="date" />
+						<form:input path="dateModified" type="date" required="true" min="2022-08-23" max="2022-08-23"/>
 				</div>
 				</div>
 				
@@ -54,7 +54,7 @@
 					<label for="dueDate">Due Date</label>
 					</div>
 					<div class="col=75">
-						<form:input path="dueDate" type="date" min="2022-08-19"/>
+						<form:input path="dueDate" type="date" min="2022-08-24" required="true"/>
 					</div>
 				</div>
 				
@@ -63,7 +63,7 @@
 					<label for="dateCompleted">Date Completed</label>
 					</div>
 					<div>
-						<form:input path="dateCompleted" type="date" />
+						<form:input path="dateCompleted" type="date" min="2022-08-24" required="true"/>
 					</div>
 				</div>
 				
@@ -74,7 +74,7 @@
 					<div class="col-75">
 						<form:input path="userId" placeholder="User ID"
 							title="User ID can't be empty or must contain only Numbers"
-							pattern="^[1-9]+[0-9]*$" required="true" />
+							pattern="^[1-9]+[0-9]*$" readonly="true" required="true"/>
 				</div>
 				<form:errors path="userId" class="text-danger" />
 				</div>
@@ -103,7 +103,7 @@
 						<form:select path="Status" class="text-box" placeholder="Status">
 							<form:option value="Select">Select</form:option>
 							<form:option value="Work in Progress">Work in Progress</form:option>
-							<form:option value="done">done</form:option>
+							<form:option value="Completed">Completed</form:option>
 						</form:select>
 				</div>
 				<form:errors path="status" class="text-danger" />

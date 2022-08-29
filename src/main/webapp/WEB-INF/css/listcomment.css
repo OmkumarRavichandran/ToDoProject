@@ -9,26 +9,9 @@ body {
 	position: relative;
 }
 
-tr:hover {
-	background-color: #999966;
-}
-
-table, th, td {
-	border: 1px solid black;
-	border-collapse: collapse;
-}
-
-tr:nth-child(even) {
-	background-color: rgba(255, 0, 0, 0.3);
-}
-
-th:nth-child(even), td:nth-child(even) {
-	background-color: rgba(192, 0, 192, 0.3);
-}
-
 .table {
 	border: 2px;
-	width: 100%;
+	width: 60%;
 	padding: 2px;
 }
 .btn {

@@ -102,8 +102,10 @@
 				<label for="state">State</label>
 				</div>
 				<div class="col-75">
-					<form:input path="state" />
-			</div>
+						<form:input path="state" placeholder="State"
+							title="State can't be empty or must contain only alphabets"
+							pattern="^[a-zA-Z]+$" required="true" />
+				</div>
 			<form:errors path="state" class="text-danger" />
 			</div>
 			
@@ -112,8 +114,10 @@
 				<label for="city">City</label>
 				</div>
 				<div class="col-75">
-					<form:input path="city" />
-			</div>
+						<form:input path="city" placeholder="City"
+							title=" City name can't be empty or must contain only alphabets"
+							pattern="^[a-zA-Z]+$" required="true" />
+				</div>
 			<form:errors path="city" class="text-danger" />
 			</div>
 			
@@ -122,14 +126,18 @@
 				<label for="pincode">Pin Code</label>
 				</div>
 				<div class="col-75">
-					<form:input path="pincode" />
-			</div>
+						<form:input path="pincode" placeholder="Pincode"
+							pattern="[1-9]{1}[0-9]{5}|[1-9]{1}[0-9]{3}\\s[0-9]{3}"
+							title="Pincode should have atleast 6 digits" required="true" />
+				</div>
 			<form:errors path="pincode" class="text-danger" />
 			</div>
 
 			<div class="row">
 				<form:button class="btn">Update User</form:button>
 			</div>
+			<div class="result">
+			${result}</div>
 		</form:form>
 		<p>
 			<button class="btn" onclick="document.location='/index'">Back</button>

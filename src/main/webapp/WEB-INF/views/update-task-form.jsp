@@ -21,7 +21,7 @@
 					<label for="taskId">Task ID</label>
 				</div>
 				<div class="col-75">
-					<form:input path="taskId" placeholder="Task ID" />
+					<form:input path="taskId" placeholder="Task ID" readonly="true"/>
 				</div>
 				<form:errors path="taskId" class="text-danger" />
 			</div>
@@ -33,7 +33,7 @@
 				<div class="col-75">
 					<form:input path="taskTitle" placeholder="Task Title"
 						title="Task Title can't be empty or must contain only alphabets"
-						pattern="^[A-Za-z\s]*$" required="true" />
+						pattern="^[A-Za-z\s]*$" required="true" readonly="true"/>
 			</div>
 			<form:errors path="taskTitle" class="text-danger" />
 			</div>
@@ -55,7 +55,8 @@
 				<label for="dateModified">Date Modified</label>
 				</div>
 				<div class="col-75">
-					<form:input path="dateModified" type="date" />
+					<form:input path="dateModified" type="date" required="true"/>
+					
 			</div>
 			</div>
 			
@@ -64,7 +65,7 @@
 				<label for="dueDate">Date Due</label>
 				</div>
 				<div class="col-75">
-					<form:input path="dueDate" type="date" />
+					<form:input path="dueDate" type="date" required="true"/>
 			</div>
 				</div>
 			<div class="row">
@@ -72,7 +73,7 @@
 				<label for="dateCompleted">Date Completed</label>
 				</div>
 				<div class="col-75">
-					<form:input path="dateCompleted" type="date" />
+					<form:input path="dateCompleted" type="date" required="true"/>
 			</div>
 			</div>
 			
@@ -81,7 +82,7 @@
 				<label for="userId">User id</label>
 				</div>
 				<div class="col-75">
-					<form:input path="userId" placeholder="User ID" />
+					<form:input path="userId" placeholder="User ID" readonly="true"/>
 			</div>
 			<form:errors path="userId" class="text-danger" />
 			</div>
@@ -107,7 +108,7 @@
 				<div class="col-75">
 					<form:select path="Status" class="text-box" placeholder="Gender">
 						<form:option value="Work in Progress">Work in Progress</form:option>
-						<form:option value="done">done</form:option>
+						<form:option value="Completed">Completed</form:option>
 					</form:select>
 				</div>
 			</div>

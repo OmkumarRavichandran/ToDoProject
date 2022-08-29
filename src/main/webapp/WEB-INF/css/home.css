@@ -122,7 +122,6 @@ em {
 }
 
 table {
-  
   border-collapse: collapse;
   width: 100%;
   border:2px;
@@ -141,7 +140,7 @@ a:hover, a:active {
 }
 iframe {
 	width: 900px;
-	height: 400px;
+	height: 450px;
 }
 
 th, td {
@@ -161,7 +160,7 @@ tr:hover {background-color: Aquamarine;
 	text-decoration: none;
 	outline: none;
 	color: white;
-	background-color: rgb(230, 0, 230);
+	background-color: rgb(230, 0, 132);
 	border: none;
 	border-radius: 10px;
 	margin-left: -61px;
@@ -176,4 +175,8 @@ tr:hover {background-color: Aquamarine;
 	background-color: #9932CC;
 	box-shadow: 0 5px #666;
 	transform: translateY(4px);
+}
+.search{
+	margin-left: 524px;
+	border-color: black;
 }

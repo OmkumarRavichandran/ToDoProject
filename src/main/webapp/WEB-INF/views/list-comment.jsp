@@ -6,6 +6,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>List of Comments</title>
+<link rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <style>
 <%@include file="/WEB-INF/css/listcomment.css"%>
 </style>
@@ -14,6 +16,10 @@
 	<div id="table root">
 		<table class="table">
 			<caption></caption>
+			<colgroup>
+                    <col span="7" style="background-color: #d9a8cf">
+                    <col span="4" style="background-color: white">
+                </colgroup>
 			<thead>
 				<tr>
 					<th>Task id</th>

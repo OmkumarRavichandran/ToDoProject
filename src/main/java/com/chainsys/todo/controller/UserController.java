@@ -1,6 +1,10 @@
 package com.chainsys.todo.controller;
 
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,13 +32,28 @@ public class UserController {
 	@SuppressWarnings("unused")
 	private static final String ADDUSER = "add-user-form"; 
 	
+	public static final String USERID ="userId";
+	
+	
 	@GetMapping("/index")
-    public String webAppp(Model model) {
-		List<Task> tasklist = taskService.getallTask();
-		
+    public String webAppp(HttpServletRequest request, Model model,User use) {
+		HttpSession session = request.getSession();
+		int userId=(int)session.getAttribute("userId");
+		List<Task> tasklist = taskService.findByuserId(userId);
 		model.addAttribute("alltask",tasklist);
 		return "home"; 
     }
+	@GetMapping("/getusertask")
+	public String getUserTask(@RequestParam("userid")int id,Model model,HttpServletRequest request) {
+		User user = new User();
+		UserTaskDTO userTask = userService.getUserTask(id);
+		HttpSession session = request.getSession();
+		int userId=(int)session.getAttribute("userId");
+		user.setUserId(userId);
+		model.addAttribute("getuser",userTask.getUser());
+		model.addAttribute("tasklist",userTask.getTaskList());
+		return "list-user-task";
+	}
 	@GetMapping("/userindex")
     public String userIndex(Model m) {
         return "userindex";
@@ -51,12 +70,36 @@ public class UserController {
     public String taskstatusIndex(Model m) {
         return "taskstatus";
     }
+	@GetMapping("/about")
+    public String about(Model m) {
+        return "about";
+    }
 	
 	@GetMapping("/userlist")
 	public String getAllUsers(Model model) {
 		List<User> uselist = userService.getAllUsers();
 		model.addAttribute("alluser",uselist);
 		return "list-users";
+	}
+
+	@GetMapping("/getuserid")
+	public String getUserById(@RequestParam("userId")int id,Model model,HttpServletRequest request) {
+		User theuser = userService.getById(id);
+		model.addAttribute("getuser",theuser);
+		HttpSession session = request.getSession();
+		int userId=(int)session.getAttribute("userId");
+		theuser.setUserId(userId);
+//		if(theuser!=null) {
+		return "find-user-id";
+//		}
+//		else {
+//			model.addAttribute("message","ID Not Found");
+//		}
+//		return "get-user-form";
+	}
+	@GetMapping("/usermodifyform")
+	public String showUserModifyForm() {
+		return "user-modify-form";
 	}
 	@GetMapping("/adduser")
 	public String showAddUser(Model model) {
@@ -72,59 +115,38 @@ public class UserController {
 				return ADDUSER;
 			}
 			catch(Exception er) {
-				model.addAttribute("message","This Name is already exist");
+				model.addAttribute("Error","Already Exists");
 				return ADDUSER;
 			}
 	}
-	@GetMapping("/getuserform")
-	public String getUserForm() {
-		return "get-user-form";
-	}
-	@GetMapping("/getuserid")
-	public String getUserById(@RequestParam("id") int id,Model model) {
-		User theuser = userService.getById(id);
-		model.addAttribute("getuser",theuser);
-		return "find-user-id";
-	}
-	@GetMapping("/usermodifyform")
-	public String showUserModifyForm() {
-		return "user-modify-form";
-	}
+
 	@GetMapping("/updateuser")
-	public String showUpdateForm(Model model,@RequestParam("userid")int id) {
+	public String showUpdateForm(Model model,@RequestParam("userid")int id,HttpServletRequest request) {
 		User user = userService.getById(id);
+		HttpSession session = request.getSession();
+		int userId=(int)session.getAttribute("userId");
+		user.setUserId(userId);
 		model.addAttribute("updateuser",user);
 		return "update-user-form";
 	}
 	@PostMapping("/update")
-	public String updateUser(@ModelAttribute("updateuser")User user,Errors errors) {
-		if(errors.hasErrors()) {
-			return "add-staff-form";
+	public String updateUser(@ModelAttribute("updateuser")User user,Errors errors,Model model) {
+		try {
+			userService.save(user);
+			model.addAttribute("result","Update completed Successfully");
+			return "update-user-form";
 		}
-		userService.save(user);
-		return "redirect:/userlist";
-	}
-	@GetMapping("/deleteuserform")
-	public String deleteUserForm() {
-		return "delete-user-form";
-	}
-	@GetMapping("/deleteuser")
-	public String deleteUser(@RequestParam("userid")int id) {
-		userService.deleteById(id);
-		return "redirect:/userlist";
+		catch(Exception er) {
+			model.addAttribute("message","This Name is already exist");
+			return "update-user-form";
+		}
 	}
 	@GetMapping("/getusertaskform")
 	public String getUserTask() {
 		return "get-user-task";
 	}
 	
-	@GetMapping("/getusertask")
-	public String getUserTask(@RequestParam("id")int id,Model model) {
-		UserTaskDTO userTask = userService.getUserTask(id);
-		model.addAttribute("getuser",userTask.getUser());
-		model.addAttribute("tasklist",userTask.getTaskList());
-		return "list-user-task";
-	}
+	
 	@GetMapping("/todo")
     public String adminaccessform(Model model) {
         User user = new User();
@@ -133,14 +155,21 @@ public class UserController {
     }                   
 
     @PostMapping("/checkuserlogin")
-    public String checkingAccess(@ModelAttribute("user") User use,Model model) {
+    public String checkingAccess(@ModelAttribute("user") User use,Model model,HttpSession session) {
     	User user = userService.getnamepassword(use.getName(), use.getPassword());
+    	try {
         if (user!= null){
-
-            return "redirect:/index";
+        	session.setAttribute("userId", user.getUserId());
+        	System.out.println(user.getUserId());
+        	
+            return "redirect:/index";       
         } else {
-        	model.addAttribute("result","Invalid UserName and Passoword");
+        	model.addAttribute("result","Invalid UserName and Password");	
         }
-            return "userlogin";
+    	}
+    	catch(Exception e) {
+    		model.addAttribute("error",e.getMessage());
+    	}  
+    	return "userlogin";
     }
 }

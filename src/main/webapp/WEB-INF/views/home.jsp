@@ -12,6 +12,16 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
 <style>
 <%@include file="/WEB-INF/css/home.css"%>
 </style>
@@ -23,11 +33,10 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 			<div class="dropdown">
 				<em class="dropbtn"> User </em>
 				<div class="dropdown-content">
-					<a href="/userlist">List of User</a> 
-					<a href="/getuserform">Get User Details</a> 
-					<a href="/usermodifyform">Modify User</a> 
-					<a href="/deleteuserform">Delete User</a>
-					<a href="/getusertaskform">Get User Task Details</a>
+				<!--	<a href="/userlist">List of User</a>   -->
+					<a href="/getuserid?userId=${userId}">Get User Details</a> 
+					<a href="/updateuser?userid=${userId}">Modify User</a> 
+					<a href="/getusertask?userid=${userId}">Get User Task Details</a>
 				</div>
 			</div>
 			<li></li>
@@ -64,10 +73,13 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 		</ul>
 		<ul>
 		<li><button  class="but "onclick="document.location='/task/addtask'">Add Task</button></li>
+		<li></li>
+		<li class="search"><input id="myInput" type="text" placeholder="Search.."></li>
 		</ul>
 	</div>
-	<div></div>
+	
 	<div id="form" style="text-align: center; margin-top: 12%;">
+	
 		<table class="table">
 		<caption></caption>
 		<colgroup>
@@ -93,7 +105,7 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 					<th>Checkbox</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody id="myTable">
 				<c:forEach var="task" items="${alltask}">
 					<tr>
 						<td>${task.taskId}</td>
@@ -109,7 +121,6 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 						<td><a href="/task/deletetask?taskid=${task.taskId}">Delete</a></td>
 						<td><a href="/task/getTaskid?taskid=${task.taskId}">View</a></td>
 						<td><a href="/task/gettaskcomment?id=${task.taskId}">Task Comments</a></td>
-						
 						<td><input type="checkbox" name="check" id="check" value="true" /></td>
 					</tr>
 				</c:forEach>

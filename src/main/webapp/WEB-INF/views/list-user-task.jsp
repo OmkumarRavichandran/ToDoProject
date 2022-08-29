@@ -12,9 +12,9 @@
 </style>
 </head>
 <body>
-	<div class="container">
-	<h1 class="btn">Get User Task Details</h1>
-		<table>
+	 <div class="container">
+	<h1 class="btn">Get User Task Details</h1> 
+		 <table>
 		<caption></caption>
 			<thead>
 				<tr>
@@ -42,7 +42,7 @@
 						<td>${getuser.pincode}</td>  
 					</tr>
 			</tbody>
-		</table>
+		</table> 
 </div>
 <div class="container">
 		<table>
@@ -59,6 +59,12 @@
 					<th>Priority</th>
 					<th>User ID</th>
 					<th>Status</th>
+					<th>Edit</th>
+					<th>Delete</th>
+					<th>View</th>
+					<th>Task Comments</th>
+					<th>Checkbox</th>
+					
 				</tr>
 			</thead>
 			<tbody>
@@ -73,7 +79,12 @@
 						<td>${task.dateCompleted}</td> 
 						<td class="red">${task.priority}</td> 
 						<td>${task.userId}</td> 
-						<td>${task.status}</td> 
+						<td>${task.status}</td>
+						<td><a href="/task/updatetask?taskid=${task.taskId}">Edit</a></td> 
+						<td><a href="/task/deletetask?taskid=${task.taskId}">Delete</a></td>
+						<td><a href="/task/getTaskid?taskid=${task.taskId}">View</a></td>
+						<td><a href="/task/gettaskcomment?id=${task.taskId}">Task Comments</a></td>
+						<td><input type="checkbox" name="check" id="check" value="true" /></td>
 						</tr>
 				</c:forEach>
 			</tbody>
